@@ -6,61 +6,58 @@
     <title>Bourantas-Karympalis, IKE - Services</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
-        [lang="en"] .lang-el { display: none; }
-        [lang="el"] .lang-en { display: none; }
-        main { flex: 1; padding: 4rem 10%; }
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        body[lang="en"] .lang-el { display: none !important; }
+        body[lang="el"] .lang-en { display: none !important; }
         .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; }
-        .logo { height: 50px; width: auto; }
-        .nav { display: flex; align-items: center; gap: 2rem; }
-        .nav-list { display: flex; list-style: none; gap: 1.5rem; }
-        .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; padding: 5px 0; border-bottom: 3px solid transparent; }
+        .nav-list { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+        .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
-        .btn-schedule { background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+        main { flex: 1; padding: 4rem 10%; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .service-card { padding: 2rem; border: 1px solid #eee; border-radius: 10px; text-align: center; }
         .footer { background: #004a99; color: #fff; padding: 2rem; text-align: center; }
     </style>
 </head>
-<body id="page-body" lang="el">
+<body lang="el">
     <header class="header">
-        <div class="header-left">
-            <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
-            <button class="lang-btn" onclick="toggleLanguage()" style="padding:0.4rem 0.8rem; border-radius:20px; cursor:pointer; background:#fff; border:1px solid #ddd;">GR / EN</button>
+        <div style="display:flex; align-items:center; gap:15px;">
+            <a href="index.html"><img src="logo.png" alt="BK Logo" height="50"></a>
+            <button onclick="toggleLanguage()" style="padding:0.4rem 0.8rem; border-radius:20px; cursor:pointer; color:#004a99; border:1px solid #004a99; background:#fff; font-weight:bold;">
+                <span class="lang-el">EN</span><span class="lang-en">GR</span>
+            </button>
         </div>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
-                <li><a href="about.html" class="nav-link"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
-                <li><a href="services.html" class="nav-link active"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
-                <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
-            </ul>
-        </nav>
+        <nav><ul class="nav-list">
+            <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
+            <li><a href="about.html" class="nav-link"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
+            <li><a href="services.html" class="nav-link active"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
+            <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
+            <li><a href="appointment.html" style="background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.8rem;"><span class="lang-el">ΡΑΝΤΕΒΟΥ</span><span class="lang-en">APPOINTMENT</span></a></li>
+        </ul></nav>
     </header>
     <main>
         <div class="services-grid">
             <div class="service-card">
                 <h3 style="color:#004a99; margin-bottom:1rem;"><span class="lang-el">Σχεδίαση Ακριβείας</span><span class="lang-en">Precision Drafting</span></h3>
-                <p><span class="lang-el">Τεχνικά σχέδια υψηλής ποιότητας.</span><span class="lang-en">High quality technical drawings.</span></p>
+                <p><span class="lang-el">Υψηλού επιπέδου τεχνικά σχέδια.</span><span class="lang-en">High-end technical blueprints.</span></p>
             </div>
             <div class="service-card">
                 <h3 style="color:#004a99; margin-bottom:1rem;"><span class="lang-el">Δομική Ανάλυση</span><span class="lang-en">Structural Analysis</span></h3>
-                <p><span class="lang-el">Εξασφάλιση μέγιστης ασφάλειας.</span><span class="lang-en">Ensuring maximum safety.</span></p>
+                <p><span class="lang-el">Στατικές μελέτες για κάθε έργο.</span><span class="lang-en">Structural studies for every project.</span></p>
             </div>
         </div>
     </main>
     <footer class="footer"><p>Bourantas-Karympalis, IKE</p></footer>
     <script>
         function toggleLanguage() {
-            const body = document.getElementById('page-body');
-            const newLang = body.lang === 'el' ? 'en' : 'el';
-            body.lang = newLang;
+            const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
+            document.body.setAttribute('lang', newLang);
             localStorage.setItem('preferredLang', newLang);
         }
-        window.onload = () => {
+        (function() {
             const savedLang = localStorage.getItem('preferredLang');
-            if (savedLang) document.getElementById('page-body').lang = savedLang;
-        };
+            if (savedLang) document.body.setAttribute('lang', savedLang);
+        })();
     </script>
 </body>
 </html>
