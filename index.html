@@ -12,9 +12,17 @@
             box-sizing: border-box;
         }
 
+        /* Ensuring footer stays at the bottom if content is short */
         body {
-            font-family: 'Arial', sans-serif; /* Using a clean sans-serif font */
+            font-family: 'Arial', sans-serif;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
         }
 
         /* Header Styles */
@@ -33,7 +41,7 @@
         }
 
         .logo {
-            height: 50px; /* Adjust height as needed */
+            height: 50px;
             width: auto;
         }
 
@@ -44,7 +52,7 @@
             text-decoration: none;
             color: #555;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         /* Navigation Styles */
@@ -69,14 +77,9 @@
             transition: color 0.3s;
         }
 
-        /* Active link style for 'HOME' */
         .nav-link.active {
-            color: #004a99; /* Dark blue color */
-            border-bottom: 3px solid #004a99;
-        }
-
-        .nav-link:hover {
             color: #004a99;
+            border-bottom: 3px solid #004a99;
         }
 
         .btn-schedule {
@@ -87,27 +90,17 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
-            transition: background-color 0.3s;
-        }
-
-        .btn-schedule:hover {
-            background-color: #003377;
         }
 
         /* Hero Section Styles */
         .hero {
-            background-image: url('background.png');
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('background.png');
             background-size: cover;
             background-position: center;
-            height: calc(100vh - 90px); /* Full height minus header approximation */
-            min-height: 600px;
+            height: 600px;
             display: flex;
             align-items: center;
-            padding-left: 10%; /* Left alignment for content */
-        }
-
-        .hero-content {
-            max-width: 800px;
+            padding-left: 10%;
         }
 
         .hero-title {
@@ -126,52 +119,57 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
-            transition: background-color 0.3s, color 0.3s;
         }
 
-        .btn-discover:hover {
-            background-color: #f0f0f0;
+        /* Footer Styles */
+        .footer {
+            background-color: #004a99; /* Matching the brand blue */
+            color: #ffffff;
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 1024px) {
-            .header {
-                padding: 1rem 3%;
-            }
-            .nav {
-                gap: 1.5rem;
-            }
-            .nav-list {
-                gap: 1.5rem;
-            }
-            .hero-title {
-                font-size: 2.8rem;
-            }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 2rem;
         }
 
+        .footer-col {
+            flex: 1;
+            text-align: center;
+            max-width: 300px; /* Forces the text to wrap as requested */
+        }
+
+        .footer-col p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .footer-label {
+            display: block;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Footer */
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .nav {
+            .footer-container {
                 flex-direction: column;
                 align-items: center;
-                width: 100%;
-            }
-            .nav-list {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-            .hero {
-                padding-left: 5%;
-                justify-content: center; /* Center text on mobile */
                 text-align: center;
             }
+            .footer-col {
+                max-width: 100%;
+            }
             .hero-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -203,6 +201,20 @@
             </div>
         </section>
     </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <span class="footer-label">Location</span>
+                <p>Al. Panagouli 5, 19300, Aspropyrgos, GR</p>
+            </div>
+
+            <div class="footer-col">
+                <span class="footer-label">Contact</span>
+                <p>Email: bourkarinfo@gmail.com <br> Phone: 2105572695</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
