@@ -3,159 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BK Architecture & Engineering | Precision Design</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>BK Architecture & Engineering | Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #0a192f;
-            --blue-accent: #00509d;
-            --tech-blue: #64ffda; /* For that blueprint glow effect */
-            --bg-light: #f4f7f9;
-            --white: #ffffff;
+            --bk-navy: #0a192f;
+            --bk-blue: #00509d;
+            --bk-border: #e1e8ed;
+            --bk-bg: #f5f8fa;
+            --bk-text: #2c3e50;
         }
 
-        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg-light); color: #333; }
-        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            background-color: var(--bk-bg); 
+            color: var(--bk-text);
+        }
+
         /* --- HEADER --- */
         header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 4%; background: var(--white); position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: white;
+            padding: 10px 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--bk-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .logo img { height: 45px; }
-        .nav-group { display: flex; align-items: center; gap: 30px; }
-        .nav-group a { text-decoration: none; color: var(--navy); font-weight: 500; font-size: 0.85rem; text-transform: uppercase; }
-        .lang-toggle { font-size: 0.8rem; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; }
+
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo-area img { height: 40px; }
+        .lang-toggle { font-size: 0.75rem; font-weight: bold; color: var(--bk-blue); border: 1px solid #ddd; padding: 4px 8px; border-radius: 4px; }
+
+        nav { display: flex; gap: 25px; align-items: center; }
+        nav a { text-decoration: none; color: var(--bk-navy); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; border-bottom: 2px solid transparent; padding-bottom: 5px; }
+        nav a.active { border-color: var(--bk-blue); }
+        
+        .btn-schedule {
+            background: var(--bk-blue); color: white; padding: 10px 20px;
+            font-size: 0.75rem; font-weight: bold; text-decoration: none; border-radius: 4px;
+        }
 
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover; color: white; padding: 100px 8%; display: flex; align-items: center; min-height: 400px;
+            background: linear-gradient(rgba(10,25,47,0.85), rgba(10,25,47,0.85)), url('blueprint_bg.jpg');
+            background-size: cover;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            color: white;
+            border-bottom: 5px solid var(--bk-blue);
         }
-        .hero-content h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; max-width: 600px; }
-        .hero-content span { color: var(--tech-blue); }
 
-        /* --- DASHBOARD GRID --- */
-        .main-container {
-            display: grid; grid-template-columns: 2fr 1fr; gap: 30px; padding: 40px 8%;
+        .hero-content h1 { 
+            font-size: 2.2rem; 
+            letter-spacing: 2px; 
+            line-height: 1.2;
+            font-family: 'Roboto Mono', monospace; 
+        }
+        .hero-content span { color: #5bc0de; }
+
+        /* --- MAIN DASHBOARD LAYOUT --- */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 2fr 1.2fr;
+            gap: 25px;
+            padding: 30px 5%;
         }
 
-        .content-block { background: var(--white); padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .content-card {
+            background: white;
+            padding: 25px;
+            border: 1px solid var(--bk-border);
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* --- PROJECT SLIDER --- */
+        .project-slider {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+        }
+
+        .project-thumb {
+            min-width: 180px;
+            flex: 1;
+        }
+
+        .project-thumb img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .project-thumb h4 { margin: 0; font-size: 0.75rem; text-transform: uppercase; }
+        .project-thumb p { margin: 0; font-size: 0.7rem; color: #7f8c8d; }
+
+        /* --- SERVICES SIDEBAR --- */
+        .services-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .service-list h4 { font-size: 0.7rem; color: #95a5a6; text-transform: uppercase; margin-bottom: 15px; }
         
-        /* Project Slider Appearance */
-        .project-row { display: flex; gap: 20px; overflow-x: auto; margin-top: 20px; padding-bottom: 10px; }
-        .project-card { min-width: 200px; }
-        .project-card img { width: 100%; border-radius: 4px; filter: grayscale(20%); transition: 0.3s; }
-        .project-card img:hover { filter: grayscale(0%); }
-
-        /* Discipline Columns */
-        .discipline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-        .discipline-item { border-left: 3px solid var(--blue-accent); padding-left: 15px; margin-bottom: 15px; }
-        .discipline-item h4 { margin: 0; font-size: 0.9rem; color: var(--blue-accent); }
-        .discipline-item p { font-size: 0.8rem; margin: 5px 0; color: #666; }
-
-        /* --- CONTACT & MAP --- */
-        .footer-cta {
-            display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding: 60px 8%; background: var(--white);
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
         }
-        .map-box { background: #e0e0e0; height: 250px; border-radius: 8px; position: relative; }
-        .map-box::after { content: 'Interactive Map View'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #888; font-size: 0.8rem; }
 
-        /* --- BUTTONS --- */
-        .btn-main { background: var(--blue-accent); color: white; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 700; transition: 0.3s; border: none; }
-        .btn-main:hover { opacity: 0.9; transform: translateY(-2px); }
+        .service-icon { width: 20px; height: 20px; background: #eef2f7; border-radius: 3px; }
+        .service-text h5 { margin: 0; font-size: 0.75rem; color: var(--bk-blue); }
+        .service-text p { margin: 0; font-size: 0.65rem; color: #7f8c8d; }
 
-        footer { background: var(--navy); color: white; text-align: center; padding: 40px; font-size: 0.8rem; opacity: 0.8; }
+        /* --- CONTACT & FOOTER --- */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 25px;
+            padding: 0 5% 50px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 3px; font-size: 0.8rem;
+        }
+
+        .map-placeholder {
+            background: #eee url('map_pattern.png');
+            height: 100%;
+            min-height: 200px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.7rem;
+        }
+
+        footer {
+            background: white;
+            padding: 20px 5%;
+            border-top: 1px solid var(--bk-border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #7f8c8d;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="header-left">
-        <a href="#" class="logo"><img src="logo.png" alt="BK Logo"></a>
-        <span class="lang-toggle">EN / FR</span>
+    <div class="logo-area">
+        <img src="logo.png" alt="BK Logo">
+        <div class="lang-toggle">EN / FR</div>
     </div>
-    <div class="nav-group">
-        <a href="#">Home</a>
+    <nav>
+        <a href="#" class="active">Home</a>
         <a href="#">About Us</a>
         <a href="#">Services</a>
         <a href="#">Contact Us</a>
-        <a href="#" class="btn-main">Schedule Appointment</a>
-    </div>
+        <a href="#" class="btn-schedule">SCHEDULE APPOINTMENT</a>
+    </nav>
 </header>
 
 <div class="hero">
     <div class="hero-content">
         <h1>BLUEPRINTS TO REALITY:<br><span>WHERE DESIGN MEETS PRECISION</span></h1>
-        <a href="#" class="btn-main" style="background: transparent; border: 1px solid white;">DISCOVER OUR WORK</a>
+        <button class="btn-schedule" style="background: transparent; border: 1px solid white;">DISCOVER OUR WORK</button>
     </div>
 </div>
 
-<div class="main-container">
-    <div class="left-col">
-        <div class="content-block">
-            <h3>OUR STORY: INNOVATION AND EXECUTION</h3>
-            <p style="font-size: 0.9rem; color: #666;">We bridge the gap between architectural aesthetics and mechanical feasibility through rigorous safety engineering and energy performance audits.</p>
-            
-            <div class="project-row">
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400" alt="Office">
-                    <p><strong>OFFICE</strong><br><small>Corporate Facility</small></p>
-                </div>
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400" alt="Residential">
-                    <p><strong>RESIDENTIAL</strong><br><small>Modern Living</small></p>
-                </div>
+<div class="dashboard">
+    <div class="content-card">
+        <div class="section-title">Our Story: Innovation and Execution</div>
+        <p style="font-size: 0.8rem; line-height: 1.6;">We specialize in the seamless integration of architectural form and mechanical function, ensuring every residential project is built for safety and energy efficiency.</p>
+        
+        <div class="project-slider">
+            <div class="project-thumb">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=400" alt="Office">
+                <h4>Office Project</h4>
+                <p>Commercial CAD Design</p>
+            </div>
+            <div class="project-thumb">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=400" alt="Apartment">
+                <h4>Residential Complex</h4>
+                <p>Mechanical Engineering</p>
+            </div>
+            <div class="project-thumb">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=400" alt="Interior">
+                <h4>Modern Interior</h4>
+                <p>Safety Engineering</p>
             </div>
         </div>
     </div>
 
-    <div class="right-col">
-        <div class="content-block">
-            <h3>DISCIPLINES</h3>
-            <div class="discipline-grid">
-                <div>
-                    <h4 style="font-size: 0.7rem; color: #999; text-transform: uppercase;">Architecture</h4>
-                    <div class="discipline-item">
-                        <h4>Conceptual Design</h4>
-                        <p>Initial vision & CAD planning.</p>
-                    </div>
-                    <div class="discipline-item">
-                        <h4>Urban Planning</h4>
-                        <p>Site and zone integration.</p>
-                    </div>
+    <div class="content-card">
+        <div class="section-title">Core Disciplines</div>
+        <div class="services-split">
+            <div class="service-list">
+                <h4>Architecture</h4>
+                <div class="service-item">
+                    <div class="service-icon"></div>
+                    <div class="service-text"><h5>Conceptual Design</h5><p>Vision & CAD</p></div>
                 </div>
-                <div>
-                    <h4 style="font-size: 0.7rem; color: #999; text-transform: uppercase;">Engineering</h4>
-                    <div class="discipline-item">
-                        <h4>Energy (EPC)</h4>
-                        <p>Performance certification.</p>
-                    </div>
-                    <div class="discipline-item">
-                        <h4>Mechanical</h4>
-                        <p>HVAC & Safety systems.</p>
-                    </div>
+                <div class="service-item">
+                    <div class="service-icon"></div>
+                    <div class="service-text"><h5>Urban Planning</h5><p>Site Integration</p></div>
+                </div>
+            </div>
+            <div class="service-list">
+                <h4>Engineering</h4>
+                <div class="service-item">
+                    <div class="service-icon"></div>
+                    <div class="service-text"><h5>Energy (EPC)</h5><p>Performance Audits</p></div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"></div>
+                    <div class="service-text"><h5>Mechanical</h5><p>HVAC Systems</p></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="footer-cta">
-    <div class="contact-form">
-        <h3>CONTACT US</h3>
-        <form style="display: flex; flex-direction: column; gap: 10px;">
-            <input type="text" placeholder="Name" style="padding: 10px; border: 1px solid #ddd;">
-            <input type="email" placeholder="Email" style="padding: 10px; border: 1px solid #ddd;">
-            <textarea placeholder="Message" style="padding: 10px; border: 1px solid #ddd; height: 80px;"></textarea>
-            <button class="btn-main">CONFIRM BOOKING</button>
-        </form>
+<div class="bottom-grid">
+    <div class="content-card contact-form">
+        <div class="section-title">Contact Us</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+        </div>
+        <textarea rows="3" placeholder="Project Brief"></textarea>
+        <button class="btn-schedule" style="width: 100%; border: none; cursor: pointer;">CONFIRM BOOKING</button>
     </div>
-    <div class="map-box"></div>
+    <div class="map-placeholder">
+        [ Interactive Location Map ]
+    </div>
 </div>
 
 <footer>
-    123 Innovation Drive, Suite 400, Metropark, MP 56789 | Phone: (555) 123-667 | Email: info@bk-firm.com
+    <div>123 Innovation Drive, Suite 400, Metropark, MP 56789</div>
+    <div>Phone: (555) 123-667 | Email: info@bk-firm.com</div>
 </footer>
 
 </body>
