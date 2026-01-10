@@ -1,74 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bourantas-Karympalis,IKE - Schedule Appointment</title>
+    <title>Bourantas-Karympalis, IKE - appointment</title>
     <style>
-        /* Shared Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
+        [lang="en"] .lang-el { display: none; }
+        [lang="el"] .lang-en { display: none; }
         main { flex: 1; padding: 4rem 5%; background: #f4f7f9; }
-        
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; }
-        .logo { height: 50px; width: auto; }
-        .nav { display: flex; align-items: center; gap: 2rem; }
-        .nav-list { display: flex; list-style: none; gap: 1.5rem; }
-        .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; }
-        .btn-schedule { background: #003377; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
-
-        .app-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .app-info { background: #004a99; color: #fff; padding: 3rem; }
-        .app-form { padding: 3rem; }
-        input, select { width: 100%; padding: 0.8rem; margin: 0.5rem 0 1rem; border: 1px solid #ddd; border-radius: 4px; }
-        .btn-book { width: 100%; background: #004a99; color: #fff; border: none; padding: 1rem; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 1rem; }
-
-        .footer { background: #004a99; color: #fff; padding: 3rem 5%; }
-        .footer-container { display: flex; justify-content: center; gap: 4rem; }
-        .footer-col { flex: 1; text-align: center; max-width: 300px; }
-        
-        @media (max-width: 800px) { .app-container { grid-template-columns: 1fr; } }
+        .app-container { max-width: 900px; margin: 0 auto; background: #fff; display: flex; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .app-info { background: #004a99; color: #fff; padding: 3rem; flex: 1; }
+        .app-form { padding: 3rem; flex: 1.5; }
+        input, select { width: 100%; padding: 0.8rem; margin: 0.5rem 0 1.5rem; border: 1px solid #ddd; border-radius: 4px; }
+        .btn-book { background: #004a99; color: #fff; padding: 1rem; border: none; width: 100%; border-radius: 4px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
-<body>
-    <header class="header">
-        <div class="header-left">
-            <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
-        </div>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li><a href="index.html" class="nav-link">HOME</a></li>
-                <li><a href="about.html" class="nav-link">ABOUT US</a></li>
-                <li><a href="services.html" class="nav-link">SERVICES</a></li>
-                <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
-            </ul>
-            <a href="appointment.html" class="btn-schedule">SCHEDULE APPOINTMENT</a>
-        </nav>
+<body id="page-body" lang="el">
+    <header style="padding:1rem 5%; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+        <a href="index.html"><img src="logo.png" alt="BK Logo" height="50"></a>
+        <button onclick="toggleLanguage()" style="padding:0.4rem 0.8rem; border-radius:20px; cursor:pointer; background:#fff; border:1px solid #ddd;">GR / EN</button>
     </header>
-
     <main>
         <div class="app-container">
             <div class="app-info">
-                <h2 style="margin-bottom:1rem;">Book Consultation</h2>
-                <p>Select a time for a technical review of your blueprints.</p>
+                <h2><span class="lang-el">Ραντεβού</span><span class="lang-en">Appointment</span></h2>
+                <p><span class="lang-el">Κλείστε μια συνάντηση.</span><span class="lang-en">Book a meeting.</span></p>
             </div>
             <div class="app-form">
                 <form>
-                    <label>Full Name</label><input type="text" required>
-                    <label>Preferred Date</label><input type="date" required>
-                    <label>Service</label>
-                    <select><option>Drafting</option><option>Structural</option><option>Consultancy</option></select>
-                    <button class="btn-book">BOOK NOW</button>
+                    <label><span class="lang-el">Ημερομηνία</span><span class="lang-en">Date</span></label><input type="date">
+                    <button class="btn-book"><span class="lang-el">ΚΡΑΤΗΣΗ</span><span class="lang-en">BOOK NOW</span></button>
                 </form>
             </div>
         </div>
     </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col"><p>Location: Al. Panagouli 5, 19300, Aspropyrgos, GR</p></div>
-            <div class="footer-col"><p>contact: Email: bourkarinfo@gmail.com, Phone: 2105572695</p></div>
-        </div>
-    </footer>
+    <script>
+        function toggleLanguage() {
+            const body = document.getElementById('page-body');
+            const newLang = body.lang === 'el' ? 'en' : 'el';
+            body.lang = newLang;
+            localStorage.setItem('preferredLang', newLang);
+        }
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            if (savedLang) document.getElementById('page-body').lang = savedLang;
+        };
+    </script>
 </body>
 </html>
