@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bourantas-Karympalis, IKE - Appointment</title>
     <style>
-        /* [COPY THE CSS FROM INDEX.HTML HERE] */
+        /* [Use same CSS as index.html above] */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { max-width: 100%; overflow-x: hidden; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
         body[lang="en"] .lang-el { display: none !important; }
         body[lang="el"] .lang-en { display: none !important; }
@@ -17,13 +18,20 @@
         .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
         .btn-schedule { background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
+        .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #004a99; }
+        #menu-toggle { display: none; }
         .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; }
         .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 250px; }
         .footer-title { text-decoration: underline; font-weight: bold; margin-bottom: 1rem; display: block; font-size: 1.1rem; }
         .footer-text { line-height: 1.6; opacity: 0.9; font-size: 0.95rem; }
         .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
-        @media (max-width: 768px) { .nav-list { display: none; } .footer-container { flex-direction: column; text-align: center; } }
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-list { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #fff; padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; }
+            #menu-toggle:checked ~ .nav-list { display: flex; }
+            .footer-container { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 <body lang="el">
@@ -32,15 +40,18 @@
             <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
             <button class="lang-btn" onclick="toggleLanguage()"><span class="lang-el">EN</span><span class="lang-en">GR</span></button>
         </div>
-        <nav><ul class="nav-list">
-            <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
-            <li><a href="about.html" class="nav-link"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
-            <li><a href="services.html" class="nav-link"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
-            <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
-            <li><a href="appointment.html" class="btn-schedule" style="background: transparent; color: #004a99; border: 1px solid #004a99;"><span class="lang-el">ΡΑΝΤΕΒΟΥ</span><span class="lang-en">APPOINTMENT</span></a></li>
-        </ul></nav>
+        <nav>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">&#9776;</label>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
+                <li><a href="about.html" class="nav-link"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
+                <li><a href="services.html" class="nav-link"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
+                <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
+                <li><a href="appointment.html" class="btn-schedule" style="background: transparent; color: #004a99; border: 1px solid #004a99;"><span class="lang-el">ΡΑΝΤΕΒΟΥ</span><span class="lang-en">APPOINTMENT</span></a></li>
+            </ul>
+        </nav>
     </header>
-
     <main style="padding: 4rem 5%;">
         <div style="max-width: 900px; margin: 0 auto; display: flex; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-wrap: wrap;">
             <div style="background: #004a99; color: #fff; padding: 3rem; flex: 1; min-width: 300px;">
@@ -55,7 +66,6 @@
             </div>
         </div>
     </main>
-
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-col">
@@ -69,7 +79,6 @@
         </div>
         <div class="copyright">Bourantas-Karympalis, IKE</div>
     </footer>
-
     <script>
         function toggleLanguage() {
             const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
