@@ -6,57 +6,53 @@
     <title>Bourantas-Karympalis, IKE - About us</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
-        [lang="en"] .lang-el { display: none; }
-        [lang="el"] .lang-en { display: none; }
-        main { flex: 1; padding: 5rem 10%; line-height: 1.8; }
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        body[lang="en"] .lang-el { display: none !important; }
+        body[lang="el"] .lang-en { display: none !important; }
         .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; }
-        .logo { height: 50px; width: auto; }
-        .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #ddd; border-radius: 20px; cursor: pointer; font-size: 0.75rem; background: #fff; }
-        .nav { display: flex; align-items: center; gap: 2rem; }
-        .nav-list { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-list { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
         .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
         .btn-schedule { background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+        main { flex: 1; padding: 5rem 10%; line-height: 1.8; }
+        h2 { color: #004a99; margin-bottom: 1.5rem; font-size: 2.5rem; }
         .footer { background: #004a99; color: #fff; padding: 2rem; text-align: center; }
-        h2 { color: #004a99; margin-bottom: 1.5rem; }
     </style>
 </head>
-<body id="page-body" lang="el">
+<body lang="el">
     <header class="header">
-        <div class="header-left">
-            <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
-            <button class="lang-btn" onclick="toggleLanguage()">GR / EN</button>
+        <div style="display:flex; align-items:center; gap:15px;">
+            <a href="index.html"><img src="logo.png" alt="BK Logo" height="50"></a>
+            <button onclick="toggleLanguage()" style="padding:0.4rem 0.8rem; border-radius:20px; cursor:pointer; color:#004a99; border:1px solid #004a99; background:#fff; font-weight:bold;">
+                <span class="lang-el">EN</span><span class="lang-en">GR</span>
+            </button>
         </div>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
-                <li><a href="about.html" class="nav-link active"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
-                <li><a href="services.html" class="nav-link"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
-                <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
-            </ul>
-            <a href="appointment.html" class="btn-schedule"><span class="lang-el">ΡΑΝΤΕΒΟΥ</span><span class="lang-en">APPOINTMENT</span></a>
-        </nav>
+        <nav><ul class="nav-list">
+            <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
+            <li><a href="about.html" class="nav-link active"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
+            <li><a href="services.html" class="nav-link"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
+            <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
+            <li><a href="appointment.html" class="btn-schedule"><span class="lang-el">ΡΑΝΤΕΒΟΥ</span><span class="lang-en">APPOINTMENT</span></a></li>
+        </ul></nav>
     </header>
     <main>
         <h2><span class="lang-el">Η Ιστορία Μας</span><span class="lang-en">Our Story</span></h2>
         <p>
-            <span class="lang-el">Η BK ειδικεύεται στη μετατροπή σύνθετων μηχανολογικών σχεδίων σε πραγματικότητα με απόλυτη ακρίβεια.</span>
-            <span class="lang-en">BK specialises in transforming complex engineering designs into reality with absolute precision.</span>
+            <span class="lang-el">Στην Bourantas-Karympalis, IKE, το όραμά μας είναι να γεφυρώσουμε το χάσμα μεταξύ της θεωρητικής σχεδίασης και της κατασκευαστικής αρτιότητας.</span>
+            <span class="lang-en">At Bourantas-Karympalis, IKE, our vision is to bridge the gap between theoretical design and construction excellence.</span>
         </p>
     </main>
     <footer class="footer"><p>Bourantas-Karympalis, IKE</p></footer>
     <script>
         function toggleLanguage() {
-            const body = document.getElementById('page-body');
-            const newLang = body.lang === 'el' ? 'en' : 'el';
-            body.lang = newLang;
+            const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
+            document.body.setAttribute('lang', newLang);
             localStorage.setItem('preferredLang', newLang);
         }
-        window.onload = () => {
+        (function() {
             const savedLang = localStorage.getItem('preferredLang');
-            if (savedLang) document.getElementById('page-body').lang = savedLang;
-        };
+            if (savedLang) document.body.setAttribute('lang', savedLang);
+        })();
     </script>
 </body>
 </html>
