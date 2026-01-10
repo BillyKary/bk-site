@@ -3,260 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BK Architecture & Engineering | Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>BK Architecture & Mechanical Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Roboto+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
             --bk-navy: #0a192f;
             --bk-blue: #00509d;
-            --bk-border: #e1e8ed;
-            --bk-bg: #f5f8fa;
-            --bk-text: #2c3e50;
+            --bk-border: #e2e8f0;
+            --bk-bg: #f8fafc;
+            --text-main: #334155;
         }
 
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            margin: 0; 
-            background-color: var(--bk-bg); 
-            color: var(--bk-text);
-        }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--bk-bg); color: var(--text-main); line-height: 1.6; }
 
         /* --- HEADER --- */
         header {
-            background: white;
-            padding: 10px 4%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--bk-border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 4%; background: #fff; border-bottom: 1px solid var(--bk-border);
+            position: sticky; top: 0; z-index: 1000;
         }
-
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo-area img { height: 40px; }
-        .lang-toggle { font-size: 0.75rem; font-weight: bold; color: var(--bk-blue); border: 1px solid #ddd; padding: 4px 8px; border-radius: 4px; }
+        .header-left { display: flex; align-items: center; gap: 20px; }
+        .logo img { height: 42px; }
+        .lang-pill { border: 1px solid #cbd5e1; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: var(--bk-blue); }
 
         nav { display: flex; gap: 25px; align-items: center; }
-        nav a { text-decoration: none; color: var(--bk-navy); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; border-bottom: 2px solid transparent; padding-bottom: 5px; }
-        nav a.active { border-color: var(--bk-blue); }
-        
-        .btn-schedule {
-            background: var(--bk-blue); color: white; padding: 10px 20px;
-            font-size: 0.75rem; font-weight: bold; text-decoration: none; border-radius: 4px;
-        }
+        nav a { text-decoration: none; color: var(--bk-navy); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        nav a.active { border-bottom: 2px solid var(--bk-blue); padding-bottom: 4px; }
+        .btn-cta { background: var(--bk-blue); color: #fff; padding: 10px 22px; border-radius: 4px; font-weight: 800; font-size: 0.75rem; text-decoration: none; }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         .hero {
-            background: linear-gradient(rgba(10,25,47,0.85), rgba(10,25,47,0.85)), url('blueprint_bg.jpg');
-            background-size: cover;
-            height: 350px;
-            display: flex;
-            align-items: center;
-            padding: 0 8%;
-            color: white;
-            border-bottom: 5px solid var(--bk-blue);
+            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), url('background.jpg');
+            background-size: cover; background-position: center; height: 450px; color: #fff; display: flex; align-items: center; padding: 0 8%;
+        }
+        .hero-content h1 { font-size: 2.8rem; line-height: 1.1; font-family: 'Roboto Mono', monospace; font-weight: 800; margin-bottom: 20px; }
+        .btn-ghost { border: 1px solid #fff; color: #fff; padding: 12px 24px; text-decoration: none; font-size: 0.8rem; font-weight: 700; display: inline-block; text-transform: uppercase; }
+
+        /* --- MAIN DASHBOARD GRID --- */
+        .main-container {
+            display: grid; grid-template-columns: 2fr 1fr; gap: 30px; padding: 40px 6%; align-items: start;
         }
 
-        .hero-content h1 { 
-            font-size: 2.2rem; 
-            letter-spacing: 2px; 
-            line-height: 1.2;
-            font-family: 'Roboto Mono', monospace; 
-        }
-        .hero-content span { color: #5bc0de; }
+        .section-card { background: #fff; padding: 30px; border: 1px solid var(--bk-border); border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .section-label { font-size: 0.85rem; font-weight: 900; text-transform: uppercase; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 20px; display: block; color: var(--bk-navy); }
 
-        /* --- MAIN DASHBOARD LAYOUT --- */
-        .dashboard {
-            display: grid;
-            grid-template-columns: 2fr 1.2fr;
-            gap: 25px;
-            padding: 30px 5%;
-        }
+        /* Story Area */
+        .story-flex { display: flex; gap: 25px; align-items: flex-start; margin-bottom: 30px; }
+        .story-icon { width: 80px; }
+        .story-text { flex: 1; font-size: 0.9rem; }
 
-        .content-card {
-            background: white;
-            padding: 25px;
-            border: 1px solid var(--bk-border);
-            border-radius: 4px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
+        /* Project Slider Mockup */
+        .project-slider { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; }
+        .project-item { min-width: 180px; flex: 0 0 auto; }
+        .project-item img { width: 100%; height: 120px; object-fit: cover; border-radius: 2px; }
+        .project-item h4 { font-size: 0.8rem; margin: 10px 0 2px; color: var(--bk-navy); }
+        .project-item p { font-size: 0.7rem; color: #64748b; margin: 0; }
 
-        .section-title {
-            font-size: 0.85rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
+        /* Services Sidebar Panels */
+        .sidebar-card { margin-bottom: 30px; }
+        .discipline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .service-entry { margin-bottom: 15px; }
+        .service-entry h5 { margin: 0; font-size: 0.75rem; color: var(--bk-blue); text-transform: uppercase; }
+        .service-entry p { margin: 0; font-size: 0.65rem; color: #64748b; }
 
-        /* --- PROJECT SLIDER --- */
-        .project-slider {
-            display: flex;
-            gap: 15px;
-            overflow-x: auto;
-            padding-bottom: 15px;
-        }
+        /* --- CONTACT SECTION --- */
+        .contact-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; padding: 0 6% 60px; }
+        .contact-form div { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 3px; font-family: inherit; font-size: 0.8rem; box-sizing: border-box; }
+        .map-placeholder { background: #e2e8f0; border-radius: 4px; display: flex; align-items: center; justify-content: center; min-height: 250px; color: #94a3b8; font-size: 0.7rem; font-weight: 600; text-align: center; }
 
-        .project-thumb {
-            min-width: 180px;
-            flex: 1;
-        }
-
-        .project-thumb img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-
-        .project-thumb h4 { margin: 0; font-size: 0.75rem; text-transform: uppercase; }
-        .project-thumb p { margin: 0; font-size: 0.7rem; color: #7f8c8d; }
-
-        /* --- SERVICES SIDEBAR --- */
-        .services-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .service-list h4 { font-size: 0.7rem; color: #95a5a6; text-transform: uppercase; margin-bottom: 15px; }
-        
-        .service-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .service-icon { width: 20px; height: 20px; background: #eef2f7; border-radius: 3px; }
-        .service-text h5 { margin: 0; font-size: 0.75rem; color: var(--bk-blue); }
-        .service-text p { margin: 0; font-size: 0.65rem; color: #7f8c8d; }
-
-        /* --- CONTACT & FOOTER --- */
-        .bottom-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 25px;
-            padding: 0 5% 50px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 3px; font-size: 0.8rem;
-        }
-
-        .map-placeholder {
-            background: #eee url('map_pattern.png');
-            height: 100%;
-            min-height: 200px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 0.7rem;
-        }
-
-        footer {
-            background: white;
-            padding: 20px 5%;
-            border-top: 1px solid var(--bk-border);
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.7rem;
-            color: #7f8c8d;
-        }
+        /* --- FOOTER --- */
+        footer { background: #fff; border-top: 1px solid var(--bk-border); padding: 30px 6%; display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 500; color: #64748b; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-area">
-        <img src="logo.png" alt="BK Logo">
-        <div class="lang-toggle">EN / FR</div>
+    <div class="header-left">
+        <div class="logo"><img src="logo.png" alt="BK Logo"></div>
+        <div class="lang-pill">EN / FR</div>
     </div>
     <nav>
         <a href="#" class="active">Home</a>
         <a href="#">About Us</a>
         <a href="#">Services</a>
         <a href="#">Contact Us</a>
-        <a href="#" class="btn-schedule">SCHEDULE APPOINTMENT</a>
+        <a href="#" class="btn-cta">SCHEDULE APPOINTMENT</a>
     </nav>
 </header>
 
 <div class="hero">
     <div class="hero-content">
-        <h1>BLUEPRINTS TO REALITY:<br><span>WHERE DESIGN MEETS PRECISION</span></h1>
-        <button class="btn-schedule" style="background: transparent; border: 1px solid white;">DISCOVER OUR WORK</button>
+        <h1>BLUEPRINTS TO REALITY:<br>WHERE DESIGN MEETS PRECISION</h1>
+        <a href="#" class="btn-ghost">Discover Our Work</a>
     </div>
 </div>
 
-<div class="dashboard">
-    <div class="content-card">
-        <div class="section-title">Our Story: Innovation and Execution</div>
-        <p style="font-size: 0.8rem; line-height: 1.6;">We specialize in the seamless integration of architectural form and mechanical function, ensuring every residential project is built for safety and energy efficiency.</p>
-        
-        <div class="project-slider">
-            <div class="project-thumb">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=400" alt="Office">
-                <h4>Office Project</h4>
-                <p>Commercial CAD Design</p>
+<div class="main-container">
+    <div class="main-content">
+        <div class="section-card">
+            <span class="section-label">Our Story: Innovation and Execution</span>
+            <div class="story-flex">
+                <svg class="story-icon" viewBox="0 0 24 24" fill="none" stroke="#00509d" stroke-width="1.5">
+                    <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21V11h6v10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="story-text">
+                    Integrating architectural excellence with mechanical feasibility. We translate complex structural challenges into elegant, high-performance residential and commercial solutions.
+                </div>
             </div>
-            <div class="project-thumb">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=400" alt="Apartment">
-                <h4>Residential Complex</h4>
-                <p>Mechanical Engineering</p>
-            </div>
-            <div class="project-thumb">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=400" alt="Interior">
-                <h4>Modern Interior</h4>
-                <p>Safety Engineering</p>
+            
+            <div class="project-slider">
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=400" alt="Office">
+                    <h4>Architecture</h4>
+                    <p>Conceptual Design</p>
+                </div>
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=400" alt="Home">
+                    <h4>Mechanical Engineering</h4>
+                    <p>HVAC Systems</p>
+                </div>
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=400" alt="Safety">
+                    <h4>Safety Engineering</h4>
+                    <p>Structural Integrity</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="content-card">
-        <div class="section-title">Core Disciplines</div>
-        <div class="services-split">
-            <div class="service-list">
-                <h4>Architecture</h4>
-                <div class="service-item">
-                    <div class="service-icon"></div>
-                    <div class="service-text"><h5>Conceptual Design</h5><p>Vision & CAD</p></div>
+    <div class="sidebar">
+        <div class="section-card sidebar-card">
+            <span class="section-label">Engineering Solutions</span>
+            <div class="project-slider" style="margin-top: 0;">
+                <div class="project-item" style="min-width: 140px;">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=400" alt="Solution">
+                    <h4>Office</h4>
+                    <p>Corporate Facility</p>
                 </div>
-                <div class="service-item">
-                    <div class="service-icon"></div>
-                    <div class="service-text"><h5>Urban Planning</h5><p>Site Integration</p></div>
+                <div class="project-item" style="min-width: 140px;">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=400" alt="Solution">
+                    <h4>Industrial</h4>
+                    <p>Mechanical Core</p>
                 </div>
             </div>
-            <div class="service-list">
-                <h4>Engineering</h4>
-                <div class="service-item">
-                    <div class="service-icon"></div>
-                    <div class="service-text"><h5>Energy (EPC)</h5><p>Performance Audits</p></div>
+        </div>
+
+        <div class="section-card">
+            <span class="section-label">Core Disciplines</span>
+            <div class="discipline-grid">
+                <div>
+                    <div class="service-entry"><h5>Conceptual Design</h5><p>BIM & Sketching</p></div>
+                    <div class="service-entry"><h5>Urban Planning</h5><p>Zoning & Safety</p></div>
                 </div>
-                <div class="service-item">
-                    <div class="service-icon"></div>
-                    <div class="service-text"><h5>Mechanical</h5><p>HVAC Systems</p></div>
+                <div>
+                    <div class="service-entry"><h5>Energy (EPC)</h5><p>Audits & Certification</p></div>
+                    <div class="service-entry"><h5>Mechanical</h5><p>HVAC Systems</p></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="bottom-grid">
-    <div class="content-card contact-form">
-        <div class="section-title">Contact Us</div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-        </div>
-        <textarea rows="3" placeholder="Project Brief"></textarea>
-        <button class="btn-schedule" style="width: 100%; border: none; cursor: pointer;">CONFIRM BOOKING</button>
+<div class="contact-grid">
+    <div class="section-card contact-form">
+        <span class="section-label">Contact Us</span>
+        <form>
+            <div>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Email Address">
+            </div>
+            <textarea rows="4" placeholder="Briefly describe your project requirements..."></textarea>
+            <button class="btn-cta" style="width: 100%; border: none; margin-top: 15px; cursor: pointer; height: 45px;">CONFIRM BOOKING</button>
+        </form>
     </div>
     <div class="map-placeholder">
         [ Interactive Location Map ]
