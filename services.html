@@ -6,48 +6,70 @@
     <title>Bourantas-Karympalis, IKE - Services</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
+        
+        /* Language Logic */
         body[lang="en"] .lang-el { display: none !important; }
         body[lang="el"] .lang-en { display: none !important; }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; }
+
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+        .logo { height: 50px; width: auto; }
+        .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #004a99; border-radius: 20px; cursor: pointer; color: #004a99; font-weight: bold; background: #fff; }
+        
         .nav-list { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
         .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
-        main { flex: 1; padding: 4rem 10%; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .service-card { padding: 2rem; border: 1px solid #eee; border-radius: 10px; text-align: center; }
-        .footer { background: #004a99; color: #fff; padding: 2rem; text-align: center; }
+
+        main { flex: 1; padding: 4rem 5%; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto 4rem auto; }
+        .service-card { padding: 2.5rem; border: 1px solid #eee; border-radius: 10px; text-align: center; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        
+        /* NEW IMAGE ROW SECTION */
+        .image-showcase { width: 100%; display: flex; justify-content: center; padding: 2rem 0; margin-top: 2rem; }
+        .showcase-img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        .footer { background: #004a99; color: #fff; padding: 3rem; text-align: center; }
+        @media (max-width: 768px) { .nav-list { display: none; } }
     </style>
 </head>
 <body lang="el">
     <header class="header">
         <div style="display:flex; align-items:center; gap:15px;">
-            <a href="index.html"><img src="logo.png" alt="BK Logo" height="50"></a>
-            <button onclick="toggleLanguage()" style="padding:0.4rem 0.8rem; border-radius:20px; cursor:pointer; color:#004a99; border:1px solid #004a99; background:#fff; font-weight:bold;">
-                <span class="lang-el">EN</span><span class="lang-en">GR</span>
-            </button>
+            <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
+            <button class="lang-btn" onclick="toggleLanguage()"><span class="lang-el">EN</span><span class="lang-en">GR</span></button>
         </div>
-        <nav><ul class="nav-list">
-            <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
-            <li><a href="about.html" class="nav-link"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
-            <li><a href="services.html" class="nav-link active"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
-            <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
-            <li><a href="appointment.html" style="background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.8rem;"><span class="lang-el">ΡΑΝΤΕΒΟΥ</span><span class="lang-en">APPOINTMENT</span></a></li>
-        </ul></nav>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
+                <li><a href="about.html" class="nav-link"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
+                <li><a href="services.html" class="nav-link active"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
+                <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
+                <li><a href="appointment.html" style="background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.8rem;"><span class="lang-el">ΡΑΝΤΕΒΟΥ</span><span class="lang-en">APPOINTMENT</span></a></li>
+            </ul>
+        </nav>
     </header>
+
     <main>
         <div class="services-grid">
             <div class="service-card">
                 <h3 style="color:#004a99; margin-bottom:1rem;"><span class="lang-el">Σχεδίαση Ακριβείας</span><span class="lang-en">Precision Drafting</span></h3>
-                <p><span class="lang-el">Υψηλού επιπέδου τεχνικά σχέδια.</span><span class="lang-en">High-end technical blueprints.</span></p>
+                <p><span class="lang-el">Δημιουργία λεπτομερών τεχνικών σχεδίων για κάθε ανάγκη.</span><span class="lang-en">Creation of detailed technical blueprints for every need.</span></p>
             </div>
             <div class="service-card">
                 <h3 style="color:#004a99; margin-bottom:1rem;"><span class="lang-el">Δομική Ανάλυση</span><span class="lang-en">Structural Analysis</span></h3>
-                <p><span class="lang-el">Στατικές μελέτες για κάθε έργο.</span><span class="lang-en">Structural studies for every project.</span></p>
+                <p><span class="lang-el">Στατικές και δομικές μελέτες με έμφαση στην ασφάλεια.</span><span class="lang-en">Static and structural studies with a focus on safety.</span></p>
             </div>
         </div>
+
+        <section class="image-showcase">
+            <img src="services.png" alt="Our Work Showcase" class="showcase-img">
+        </section>
     </main>
-    <footer class="footer"><p>Bourantas-Karympalis, IKE</p></footer>
+
+    <footer class="footer">
+        <p>Bourantas-Karympalis, IKE</p>
+    </footer>
+
     <script>
         function toggleLanguage() {
             const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
