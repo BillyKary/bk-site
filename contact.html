@@ -3,50 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bourantas-Karympalis, IKE - contact</title>
+    <title>Bourantas-Karympalis, IKE - Contact</title>
     <style>
+        /* [COPY THE CSS FROM INDEX.HTML HERE] */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
         body[lang="en"] .lang-el { display: none !important; }
         body[lang="el"] .lang-en { display: none !important; }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; }
-        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1200px; margin: 3rem auto; padding: 0 5%; }
-        .form-card { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        input, textarea { width: 100%; padding: 0.8rem; margin: 0.5rem 0 1rem; border: 1px solid #ddd; border-radius: 4px; }
-        .btn-send { background: #004a99; color: #fff; border: none; padding: 1rem; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+        .logo { height: 50px; width: auto; }
+        .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #004a99; border-radius: 20px; cursor: pointer; color: #004a99; font-weight: bold; background: #fff; }
+        .nav-list { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+        .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; }
+        .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
+        .btn-schedule { background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
+        .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; }
+        .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .footer-col { flex: 1; min-width: 250px; }
+        .footer-title { text-decoration: underline; font-weight: bold; margin-bottom: 1rem; display: block; font-size: 1.1rem; }
+        .footer-text { line-height: 1.6; opacity: 0.9; font-size: 0.95rem; }
+        .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
+        @media (max-width: 900px) { .nav-list { display: none; } .footer-container { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body lang="el">
     <header class="header">
         <div style="display:flex; align-items:center; gap:15px;">
-            <a href="index.html"><img src="logo.png" alt="BK Logo" height="50"></a>
-            <button onclick="toggleLanguage()" style="padding:0.4rem 0.8rem; border-radius:20px; cursor:pointer; color:#004a99; border:1px solid #004a99; background:#fff; font-weight:bold;">
-                <span class="lang-el">EN</span><span class="lang-en">GR</span>
-            </button>
+            <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
+            <button class="lang-btn" onclick="toggleLanguage()"><span class="lang-el">EN</span><span class="lang-en">GR</span></button>
         </div>
-        <nav><ul style="display:flex; list-style:none; gap:1.5rem; align-items:center;">
-            <li><a href="index.html" style="text-decoration:none; color:#444; font-weight:700;"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
-            <li><a href="about.html" style="text-decoration:none; color:#444; font-weight:700;"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
-            <li><a href="services.html" style="text-decoration:none; color:#444; font-weight:700;"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
-            <li><a href="contact.html" style="text-decoration:none; color:#004a99; border-bottom:3px solid #004a99; font-weight:700;"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
+        <nav><ul class="nav-list">
+            <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
+            <li><a href="about.html" class="nav-link"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
+            <li><a href="services.html" class="nav-link"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
+            <li><a href="contact.html" class="nav-link active"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
+            <li><a href="appointment.html" class="btn-schedule"><span class="lang-el">ΡΑΝΤΕΒΟΥ</span><span class="lang-en">APPOINTMENT</span></a></li>
         </ul></nav>
     </header>
-    <main>
-        <div class="contact-container">
-            <div class="form-card">
-                <h2 style="color:#004a99; margin-bottom:1rem;"><span class="lang-el">Επικοινωνήστε</span><span class="lang-en">Contact Us</span></h2>
-                <form>
-                    <label><span class="lang-el">Όνομα</span><span class="lang-en">Name</span></label><input type="text">
-                    <label>Email</label><input type="email">
-                    <label><span class="lang-el">Μήνυμα</span><span class="lang-en">Message</span></label><textarea rows="5"></textarea>
-                    <button class="btn-send"><span class="lang-el">ΑΠΟΣΤΟΛΗ</span><span class="lang-en">SUBMIT</span></button>
-                </form>
+
+    <main style="max-width: 1200px; margin: 3rem auto; padding: 0 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div style="background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <h2 style="color:#004a99; margin-bottom: 1rem;"><span class="lang-el">Επικοινωνήστε</span><span class="lang-en">Contact Us</span></h2>
+            <form action="https://formspree.io/f/your-id" method="POST">
+                <input type="text" name="name" placeholder="Name" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 4px;" required>
+                <input type="email" name="email" placeholder="Email" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 4px;" required>
+                <textarea name="message" rows="5" placeholder="Message" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 4px;" required></textarea>
+                <button type="submit" style="background: #004a99; color: #fff; border: none; padding: 1rem; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold;"><span class="lang-el">ΑΠΟΣΤΟΛΗ</span><span class="lang-en">SUBMIT</span></button>
+            </form>
+        </div>
+        <div style="border-radius:8px; overflow:hidden;"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.2!2d23.58!3d38.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bb37e19f79e5%3A0x8f7d976077755a5b!2zQWwuIFBhbmFnb3VsaSA1LCBBc3Byb3B5cmdvcyAxOTMgMDA!5e0!3m2!1sen!2sgr!4v1234567890" width="100%" height="400" style="border:0;" loading="lazy"></iframe></div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <span class="footer-title"><span class="lang-el">Διεύθυνση</span><span class="lang-en">Location</span></span>
+                <p class="footer-text"><span class="lang-el">Αλέκου Παναγούλη 5, 19300, Ασπρόπυργος, Ελλάδα</span><span class="lang-en">Alekoy Panagouli 5, 19300, Aspropyrgos, Greece</span></p>
             </div>
-            <div style="border-radius:8px; overflow:hidden;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.208197769973!2d23.5855!3d38.0355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDAyJzA3LjgiTiAyM8KwMzUnMDcuOCJF!5e0!3m2!1sel!2sgr!4v1630000000000!5m2!1sel!2sgr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="footer-col">
+                <span class="footer-title"><span class="lang-el">Επικοινωνία</span><span class="lang-en">Contact Information</span></span>
+                <p class="footer-text">Email: bourkarinfo@gmail.com<br><span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695</p>
             </div>
         </div>
-    </main>
+        <div class="copyright">Bourantas-Karympalis, IKE</div>
+    </footer>
+
     <script>
         function toggleLanguage() {
             const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
