@@ -1,74 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bourantas-Karympalis,IKE - Contact Us</title>
+    <title>Bourantas-Karympalis, IKE - contact</title>
     <style>
-        /* Shared Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
-        main { flex: 1; padding: 4rem 5%; background: #f9f9f9; }
-        
+        [lang="en"] .lang-el { display: none; }
+        [lang="el"] .lang-en { display: none; }
+        main { flex: 1; padding: 3rem 5%; background: #f9f9f9; }
         .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; }
-        .logo { height: 50px; width: auto; }
-        .nav { display: flex; align-items: center; gap: 2rem; }
-        .nav-list { display: flex; list-style: none; gap: 1.5rem; }
-        .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; }
-        .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
-        .btn-schedule { background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
-
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1200px; margin: 0 auto; }
         .form-card { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .map-card { border-radius: 8px; overflow: hidden; height: 100%; min-height: 400px; }
-        input, textarea { width: 100%; padding: 0.8rem; margin: 0.5rem 0 1.5rem; border: 1px solid #ddd; border-radius: 4px; }
-        .btn-send { background: #004a99; color: #fff; border: none; padding: 1rem 2rem; border-radius: 4px; cursor: pointer; font-weight: bold; }
-
-        .footer { background: #004a99; color: #fff; padding: 3rem 5%; }
-        .footer-container { display: flex; justify-content: center; gap: 4rem; }
-        .footer-col { flex: 1; text-align: center; max-width: 300px; }
-        
-        @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+        .map-card { border-radius: 8px; overflow: hidden; min-height: 450px; }
+        input, textarea { width: 100%; padding: 0.8rem; margin: 0.5rem 0 1rem; border: 1px solid #ddd; border-radius: 4px; }
+        .btn-send { background: #004a99; color: #fff; border: none; padding: 1rem; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; }
+        @media (max-width: 900px) { .contact-container { grid-template-columns: 1fr; } }
     </style>
 </head>
-<body>
+<body id="page-body" lang="el">
     <header class="header">
-        <div class="header-left">
-            <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
-        </div>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li><a href="index.html" class="nav-link">HOME</a></li>
-                <li><a href="about.html" class="nav-link">ABOUT US</a></li>
-                <li><a href="services.html" class="nav-link">SERVICES</a></li>
-                <li><a href="contact.html" class="nav-link active">CONTACT US</a></li>
-            </ul>
-            <a href="appointment.html" class="btn-schedule">SCHEDULE APPOINTMENT</a>
-        </nav>
+        <a href="index.html"><img src="logo.png" alt="BK Logo" height="50"></a>
+        <button onclick="toggleLanguage()" style="padding:0.4rem 0.8rem; border-radius:20px; cursor:pointer; background:#fff; border:1px solid #ddd;">GR / EN</button>
     </header>
-
     <main>
-        <div class="contact-grid">
+        <div class="contact-container">
             <div class="form-card">
-                <h2 style="color:#004a99; margin-bottom:1rem;">Send a Message</h2>
+                <h2 style="color:#004a99;"><span class="lang-el">Επικοινωνία</span><span class="lang-en">Contact</span></h2>
                 <form>
-                    <label>Name</label><input type="text" required>
-                    <label>Email</label><input type="email" required>
-                    <label>Message</label><textarea rows="5" required></textarea>
-                    <button class="btn-send">SEND</button>
+                    <label><span class="lang-el">Ονοματεπώνυμο</span><span class="lang-en">Full Name</span></label><input type="text">
+                    <label>Email</label><input type="email">
+                    <label><span class="lang-el">Μήνυμα</span><span class="lang-en">Message</span></label><textarea rows="5"></textarea>
+                    <button class="btn-send"><span class="lang-el">ΑΠΟΣΤΟΛΗ</span><span class="lang-en">SUBMIT</span></button>
                 </form>
             </div>
             <div class="map-card">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.6263539827664!2d23.60621431264639!3d38.00913957180479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1a51201732f7b%3A0xe54263721345465e!2sAlekou%20Panagouli%205%2C%20Aspropirgos%20193%2000!5e0!3m2!1sen!2sgr!4v1715870000000!5m2!1sen!2sgr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/contrib/116890254572818937026/reviews" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col"><p>Location: Al. Panagouli 5, 19300, Aspropyrgos, GR</p></div>
-            <div class="footer-col"><p>contact: Email: bourkarinfo@gmail.com, Phone: 2105572695</p></div>
-        </div>
-    </footer>
+    <script>
+        function toggleLanguage() {
+            const body = document.getElementById('page-body');
+            const newLang = body.lang === 'el' ? 'en' : 'el';
+            body.lang = newLang;
+            localStorage.setItem('preferredLang', newLang);
+        }
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            if (savedLang) document.getElementById('page-body').lang = savedLang;
+        };
+    </script>
 </body>
 </html>
