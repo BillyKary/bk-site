@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BK</title>
+    <style>
+        /* Shared Styles (Copy from Index) */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex: 1; }
+        
+        /* Header */
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background-color: #ffffff; }
+        .header-left { display: flex; align-items: center; gap: 2rem; }
+        .logo { height: 50px; width: auto; }
+        .lang-selector { padding: 0.5rem 1rem; border: 2px solid #ccc; border-radius: 25px; text-decoration: none; color: #555; font-weight: bold; font-size: 0.8rem; }
+        .nav { display: flex; align-items: center; gap: 2.5rem; }
+        .nav-list { display: flex; list-style: none; gap: 2.5rem; }
+        .nav-link { text-decoration: none; color: #555; font-weight: bold; font-size: 0.9rem; padding-bottom: 5px; }
+        .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
+        .btn-schedule { background-color: #004a99; color: #ffffff; padding: 0.8rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+
+        /* Page Specific Content */
+        .sub-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.png');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .content-section {
+            padding: 5rem 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .content-section h2 {
+            color: #004a99;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        /* Footer (Shared) */
+        .footer { background-color: #004a99; color: #ffffff; padding: 3rem 5%; }
+        .footer-container { display: flex; justify-content: space-around; max-width: 1200px; margin: 0 auto; gap: 2rem; }
+        .footer-col { flex: 1; text-align: center; max-width: 300px; }
+        .footer-label { display: block; font-weight: bold; text-transform: uppercase; margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <img src="logo.png" alt="BK Logo" class="logo">
+            <a href="#" class="lang-selector">EN / FR</a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="about.html" class="nav-link active">ABOUT US</a></li>
+                <li><a href="services.html" class="nav-link">SERVICES</a></li>
+                <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
+            </ul>
+            <a href="appointment.html" class="btn-schedule">SCHEDULE APPOINTMENT</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="sub-hero">
+            <h1>Our Story & Mission</h1>
+        </section>
+
+        <section class="content-section">
+            <h2>Turning Blueprints into Reality</h2>
+            <p>At BK, we specialize in bridging the gap between conceptual design and high-precision execution. With years of experience in the industry, our team is dedicated to providing engineering solutions that are as accurate as they are innovative. We believe that every great structure begins with a meticulous plan.</p>
+            <br>
+            <p>From our base in Aspropyrgos, we serve a diverse range of clients, ensuring that every project meets the highest standards of safety and design excellence.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <span class="footer-label">Location</span>
+                <p>Al. Panagouli 5, 19300, Aspropyrgos, GR</p>
+            </div>
+            <div class="footer-col">
+                <span class="footer-label">Contact</span>
+                <p>Email: bourkarinfo@gmail.com <br> Phone: 2105572695</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
