@@ -1,61 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bourantas-Karympalis,IKE - Services</title>
+    <title>Bourantas-Karympalis, IKE - Services</title>
     <style>
-        /* Shared Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
+        [lang="en"] .lang-el { display: none; }
+        [lang="el"] .lang-en { display: none; }
         main { flex: 1; padding: 4rem 10%; }
-        
         .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; }
         .logo { height: 50px; width: auto; }
         .nav { display: flex; align-items: center; gap: 2rem; }
         .nav-list { display: flex; list-style: none; gap: 1.5rem; }
-        .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; }
+        .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; padding: 5px 0; border-bottom: 3px solid transparent; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
         .btn-schedule { background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
-
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .service-card { padding: 2rem; border: 1px solid #eee; border-radius: 8px; text-align: center; }
-        .service-card h3 { color: #004a99; margin-bottom: 1rem; }
-
-        .footer { background: #004a99; color: #fff; padding: 3rem 5%; }
-        .footer-container { display: flex; justify-content: center; gap: 4rem; }
-        .footer-col { flex: 1; text-align: center; max-width: 300px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .service-card { padding: 2rem; border: 1px solid #eee; border-radius: 10px; text-align: center; }
+        .footer { background: #004a99; color: #fff; padding: 2rem; text-align: center; }
     </style>
 </head>
-<body>
+<body id="page-body" lang="el">
     <header class="header">
         <div class="header-left">
             <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
+            <button class="lang-btn" onclick="toggleLanguage()" style="padding:0.4rem 0.8rem; border-radius:20px; cursor:pointer; background:#fff; border:1px solid #ddd;">GR / EN</button>
         </div>
         <nav class="nav">
             <ul class="nav-list">
-                <li><a href="index.html" class="nav-link">HOME</a></li>
-                <li><a href="about.html" class="nav-link">ABOUT US</a></li>
-                <li><a href="services.html" class="nav-link active">SERVICES</a></li>
-                <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
+                <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
+                <li><a href="about.html" class="nav-link"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
+                <li><a href="services.html" class="nav-link active"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
+                <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
             </ul>
-            <a href="appointment.html" class="btn-schedule">SCHEDULE APPOINTMENT</a>
         </nav>
     </header>
-
     <main>
         <div class="services-grid">
-            <div class="service-card"><h3>Precision Drafting</h3><p>Accurate technical drawings for every engineering need.</p></div>
-            <div class="service-card"><h3>Structural Analysis</h3><p>Ensuring safety and durability in every design.</p></div>
-            <div class="service-card"><h3>Consultancy</h3><p>Expert guidance from the blueprint stage to final reality.</p></div>
+            <div class="service-card">
+                <h3 style="color:#004a99; margin-bottom:1rem;"><span class="lang-el">Σχεδίαση Ακριβείας</span><span class="lang-en">Precision Drafting</span></h3>
+                <p><span class="lang-el">Τεχνικά σχέδια υψηλής ποιότητας.</span><span class="lang-en">High quality technical drawings.</span></p>
+            </div>
+            <div class="service-card">
+                <h3 style="color:#004a99; margin-bottom:1rem;"><span class="lang-el">Δομική Ανάλυση</span><span class="lang-en">Structural Analysis</span></h3>
+                <p><span class="lang-el">Εξασφάλιση μέγιστης ασφάλειας.</span><span class="lang-en">Ensuring maximum safety.</span></p>
+            </div>
         </div>
     </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col"><p>Location: Al. Panagouli 5, 19300, Aspropyrgos, GR</p></div>
-            <div class="footer-col"><p>contact: Email: bourkarinfo@gmail.com, Phone: 2105572695</p></div>
-        </div>
-    </footer>
+    <footer class="footer"><p>Bourantas-Karympalis, IKE</p></footer>
+    <script>
+        function toggleLanguage() {
+            const body = document.getElementById('page-body');
+            const newLang = body.lang === 'el' ? 'en' : 'el';
+            body.lang = newLang;
+            localStorage.setItem('preferredLang', newLang);
+        }
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            if (savedLang) document.getElementById('page-body').lang = savedLang;
+        };
+    </script>
 </body>
 </html>
