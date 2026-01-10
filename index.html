@@ -3,199 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BK Architecture & Mechanical Engineering</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>BK Architecture & Engineering | Precision Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0a192f;
-            --accent: #00509d;
-            --light: #f8f9fa;
+            --navy: #0a192f;
+            --blue-accent: #00509d;
+            --tech-blue: #64ffda; /* For that blueprint glow effect */
+            --bg-light: #f4f7f9;
             --white: #ffffff;
-            --text-gray: #8892b0;
         }
 
-        body { font-family: 'Inter', sans-serif; margin: 0; color: #333; scroll-behavior: smooth; line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg-light); color: #333; }
         
         /* --- HEADER --- */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: var(--white); border-bottom: 1px solid #eee;
-            position: fixed; width: 90%; top: 0; z-index: 1000;
+            padding: 10px 4%; background: var(--white); position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo img { height: 45px; }
+        .nav-group { display: flex; align-items: center; gap: 30px; }
+        .nav-group a { text-decoration: none; color: var(--navy); font-weight: 500; font-size: 0.85rem; text-transform: uppercase; }
+        .lang-toggle { font-size: 0.8rem; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; color: white; padding: 100px 8%; display: flex; align-items: center; min-height: 400px;
+        }
+        .hero-content h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; max-width: 600px; }
+        .hero-content span { color: var(--tech-blue); }
+
+        /* --- DASHBOARD GRID --- */
+        .main-container {
+            display: grid; grid-template-columns: 2fr 1fr; gap: 30px; padding: 40px 8%;
         }
 
-        .header-left { display: flex; align-items: center; gap: 20px; }
-        .logo img { height: 40px; }
+        .content-block { background: var(--white); padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
         
-        .nav-links a { text-decoration: none; color: var(--primary); margin-left: 20px; font-weight: 600; font-size: 0.9rem; }
-        
-        /* --- MODERN BUTTON --- */
-        .btn {
-            position: relative; background: var(--accent); color: white; padding: 12px 25px;
-            border-radius: 4px; text-decoration: none; font-weight: 600; overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); border: none; cursor: pointer;
+        /* Project Slider Appearance */
+        .project-row { display: flex; gap: 20px; overflow-x: auto; margin-top: 20px; padding-bottom: 10px; }
+        .project-card { min-width: 200px; }
+        .project-card img { width: 100%; border-radius: 4px; filter: grayscale(20%); transition: 0.3s; }
+        .project-card img:hover { filter: grayscale(0%); }
+
+        /* Discipline Columns */
+        .discipline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .discipline-item { border-left: 3px solid var(--blue-accent); padding-left: 15px; margin-bottom: 15px; }
+        .discipline-item h4 { margin: 0; font-size: 0.9rem; color: var(--blue-accent); }
+        .discipline-item p { font-size: 0.8rem; margin: 5px 0; color: #666; }
+
+        /* --- CONTACT & MAP --- */
+        .footer-cta {
+            display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding: 60px 8%; background: var(--white);
         }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,80,157,0.3); }
-        .btn::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: all 0.6s;
-        }
-        .btn:hover::before { left: 100%; }
+        .map-box { background: #e0e0e0; height: 250px; border-radius: 8px; position: relative; }
+        .map-box::after { content: 'Interactive Map View'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #888; font-size: 0.8rem; }
 
-        /* --- SECTIONS --- */
-        section { padding: 100px 10%; }
-        .hero { background: var(--primary); color: white; text-align: center; padding: 180px 10% 120px; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+        /* --- BUTTONS --- */
+        .btn-main { background: var(--blue-accent); color: white; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 700; transition: 0.3s; border: none; }
+        .btn-main:hover { opacity: 0.9; transform: translateY(-2px); }
 
-        .about-text { max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; }
-
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px;
-        }
-        .card { 
-            padding: 40px; border: 1px solid #eee; transition: 0.3s; background: var(--white);
-            border-top: 4px solid var(--accent);
-        }
-        .card:hover { transform: translateY(-5px); background: var(--primary); color: white; }
-        .card h3 { color: var(--accent); }
-        .card:hover h3 { color: white; }
-
-        /* --- FORM --- */
-        .booking-container { background: var(--light); border-radius: 8px; padding: 50px; max-width: 700px; margin: 0 auto; }
-        .form-group { display: flex; flex-direction: column; margin-bottom: 20px; }
-        .form-group label { font-weight: 600; margin-bottom: 8px; }
-        input, select, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
-
-        /* --- FOOTER --- */
-        footer { background: var(--primary); color: white; padding: 60px 10% 20px; text-align: center; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
-
-        .lang-select { padding: 8px; border-radius: 4px; border: 1px solid var(--accent); background: white; cursor: pointer; font-weight: 600; }
+        footer { background: var(--navy); color: white; text-align: center; padding: 40px; font-size: 0.8rem; opacity: 0.8; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="header-left">
-        <div class="logo"><strong>https://github.com/BillyKary/bk-site/blob/main/logo.png</strong> Bourantas - Karympalis, IKE</div>
-        <select class="lang-select" onchange="updateLang(this.value)">
-            <option value="en">English</option>
-            <option value="other">Second Language</option>
-        </select>
+        <a href="#" class="logo"><img src="logo.png" alt="BK Logo"></a>
+        <span class="lang-toggle">EN / FR</span>
     </div>
-    <nav class="nav-links">
-        <a href="#about" data-key="nav_about">About Us</a>
-        <a href="#services" data-key="nav_services">Services</a>
-        <a href="#booking" class="btn" data-key="nav_book">Schedule Appointment</a>
-    </nav>
+    <div class="nav-group">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="#">Contact Us</a>
+        <a href="#" class="btn-main">Schedule Appointment</a>
+    </div>
 </header>
 
-<section class="hero">
-    <h1 data-key="hero_h1">Architecture & Mechanical Engineering</h1>
-    <p data-key="hero_p">Precision-driven design, safety engineering, and energy performance certification.</p>
-</section>
-
-<section id="about">
-    <div class="about-text">
-        <h2 data-key="nav_about">About Us</h2>
-        <p data-key="about_bio">BK Architecture & Mechanical Engineering provides a unified approach to residential design, bridging the gap between aesthetic vision and technical precision. By integrating safety engineering and energy performance from the first CAD sketch, we ensure every project is compliant and structurally superior.</p>
+<div class="hero">
+    <div class="hero-content">
+        <h1>BLUEPRINTS TO REALITY:<br><span>WHERE DESIGN MEETS PRECISION</span></h1>
+        <a href="#" class="btn-main" style="background: transparent; border: 1px solid white;">DISCOVER OUR WORK</a>
     </div>
-</section>
+</div>
 
-<section id="services" style="background: #fcfcfc;">
-    <h2 style="text-align: center;" data-key="nav_services">Our Services</h2>
-    <div class="services-grid">
-        <div class="card">
-            <h3 data-key="s1_h">Residential Architecture</h3>
-            <p data-key="s1_p">Custom CAD design, site planning, and architectural visualization for modern homes.</p>
-        </div>
-        <div class="card">
-            <h3 data-key="s2_h">Mechanical Systems</h3>
-            <p data-key="s2_p">Precision HVAC, plumbing, and fire protection schematics integrated with your build.</p>
-        </div>
-        <div class="card">
-            <h3 data-key="s3_h">Safety Engineering</h3>
-            <p data-key="s3_p">Structural risk assessment and code compliance to ensure lifelong building safety.</p>
-        </div>
-        <div class="card">
-            <h3 data-key="s4_h">Energy Certificates (EPC)</h3>
-            <p data-key="s4_p">Certified energy assessments and efficiency roadmaps for sustainable properties.</p>
+<div class="main-container">
+    <div class="left-col">
+        <div class="content-block">
+            <h3>OUR STORY: INNOVATION AND EXECUTION</h3>
+            <p style="font-size: 0.9rem; color: #666;">We bridge the gap between architectural aesthetics and mechanical feasibility through rigorous safety engineering and energy performance audits.</p>
+            
+            <div class="project-row">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400" alt="Office">
+                    <p><strong>OFFICE</strong><br><small>Corporate Facility</small></p>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400" alt="Residential">
+                    <p><strong>RESIDENTIAL</strong><br><small>Modern Living</small></p>
+                </div>
+            </div>
         </div>
     </div>
-</section>
 
-<section id="booking">
-    <div class="booking-container">
-        <h2 data-key="book_h">Project Consultation</h2>
-        <form>
-            <div class="form-group">
-                <label data-key="f_name">Full Name</label>
-                <input type="text" required>
+    <div class="right-col">
+        <div class="content-block">
+            <h3>DISCIPLINES</h3>
+            <div class="discipline-grid">
+                <div>
+                    <h4 style="font-size: 0.7rem; color: #999; text-transform: uppercase;">Architecture</h4>
+                    <div class="discipline-item">
+                        <h4>Conceptual Design</h4>
+                        <p>Initial vision & CAD planning.</p>
+                    </div>
+                    <div class="discipline-item">
+                        <h4>Urban Planning</h4>
+                        <p>Site and zone integration.</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.7rem; color: #999; text-transform: uppercase;">Engineering</h4>
+                    <div class="discipline-item">
+                        <h4>Energy (EPC)</h4>
+                        <p>Performance certification.</p>
+                    </div>
+                    <div class="discipline-item">
+                        <h4>Mechanical</h4>
+                        <p>HVAC & Safety systems.</p>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label data-key="f_type">Project Type</label>
-                <select>
-                    <option>Integrated (Architecture + Engineering)</option>
-                    <option>Safety / Energy Audit</option>
-                    <option>Pure Architectural CAD</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label data-key="f_info">Additional Information</label>
-                <textarea rows="4" placeholder="Tell us about your project goals..."></textarea>
-            </div>
-            <button type="submit" class="btn" style="width: 100%;" data-key="nav_book">Schedule Appointment</button>
+        </div>
+    </div>
+</div>
+
+<div class="footer-cta">
+    <div class="contact-form">
+        <h3>CONTACT US</h3>
+        <form style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="text" placeholder="Name" style="padding: 10px; border: 1px solid #ddd;">
+            <input type="email" placeholder="Email" style="padding: 10px; border: 1px solid #ddd;">
+            <textarea placeholder="Message" style="padding: 10px; border: 1px solid #ddd; height: 80px;"></textarea>
+            <button class="btn-main">CONFIRM BOOKING</button>
         </form>
     </div>
-</section>
+    <div class="map-box"></div>
+</div>
 
 <footer>
-    <div class="footer-grid">
-        <div>
-            <h4>BK Firm</h4>
-            <p>123 Engineering Way<br>Metropolis, NY 10101</p>
-        </div>
-        <div>
-            <h4>Contact</h4>
-            <p>info@bk-firm.com<br>+1 (555) 867-5309</p>
-        </div>
-    </div>
-    <p class="copyright">&copy; 2026 BK Architecture & Mechanical Engineering. All Rights Reserved.</p>
+    123 Innovation Drive, Suite 400, Metropark, MP 56789 | Phone: (555) 123-667 | Email: info@bk-firm.com
 </footer>
-
-<script>
-    const langData = {
-        en: {
-            nav_about: "About Us", nav_services: "Services", nav_book: "Schedule Appointment",
-            hero_h1: "Architecture & Mechanical Engineering",
-            hero_p: "Precision-driven design, safety engineering, and energy performance certification.",
-            about_bio: "BK Architecture & Mechanical Engineering provides a unified approach to residential design, bridging the gap between aesthetic vision and technical precision...",
-            s1_h: "Residential Architecture", s1_p: "Custom CAD design and structural planning.",
-            s2_h: "Mechanical Systems", s2_p: "Precision HVAC and plumbing documentation.",
-            s3_h: "Safety Engineering", s3_p: "Code compliance and life safety systems.",
-            s4_h: "Energy Certificates", s4_p: "Official EPC assessments.",
-            book_h: "Project Consultation", f_name: "Full Name", f_type: "Project Type", f_info: "Additional Information"
-        },
-        other: {
-            nav_about: "Sobre Nosotros", nav_services: "Servicios", nav_book: "Programar Cita",
-            hero_h1: "Arquitectura e Ingeniería Mecánica",
-            hero_p: "Diseño impulsado por la precisión, ingeniería de seguridad y certificación energética.",
-            about_bio: "BK Architecture & Mechanical Engineering ofrece un enfoque unificado para el diseño residencial, uniendo la visión estética y la precisión técnica...",
-            s1_h: "Arquitectura Residencial", s1_p: "Diseño CAD personalizado y planificación estructural.",
-            s2_h: "Sistemas Mecánicos", s2_p: "Documentación de precisión en HVAC y fontanería.",
-            s3_h: "Ingeniería de Seguridad", s3_p: "Cumplimiento de códigos y sistemas de seguridad.",
-            s4_h: "Certificados Energéticos", s4_p: "Evaluaciones oficiales de EPC.",
-            book_h: "Consulta del Proyecto", f_name: "Nombre Completo", f_type: "Tipo de Proyecto", f_info: "Información Adicional"
-        }
-    };
-
-    function updateLang(lang) {
-        document.querySelectorAll('[data-key]').forEach(el => {
-            const key = el.getAttribute('data-key');
-            el.innerText = langData[lang][key];
-        });
-    }
-</script>
 
 </body>
 </html>
