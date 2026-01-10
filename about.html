@@ -1,57 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bourantas-Karympalis,IKE - About Us</title>
+    <title>Bourantas-Karympalis, IKE - About us</title>
     <style>
-        /* Shared Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
-        main { flex: 1; padding: 4rem 10%; line-height: 1.8; }
-        
+        [lang="en"] .lang-el { display: none; }
+        [lang="el"] .lang-en { display: none; }
+        main { flex: 1; padding: 5rem 10%; line-height: 1.8; }
         .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; }
-        .header-left { display: flex; align-items: center; gap: 1.5rem; }
         .logo { height: 50px; width: auto; }
+        .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #ddd; border-radius: 20px; cursor: pointer; font-size: 0.75rem; background: #fff; }
         .nav { display: flex; align-items: center; gap: 2rem; }
         .nav-list { display: flex; list-style: none; gap: 1.5rem; }
         .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
         .btn-schedule { background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
-
-        h2 { color: #004a99; margin-bottom: 1.5rem; font-size: 2.5rem; }
-
-        .footer { background: #004a99; color: #fff; padding: 3rem 5%; }
-        .footer-container { display: flex; justify-content: center; gap: 4rem; margin: 0 auto; max-width: 1200px; }
-        .footer-col { flex: 1; text-align: center; max-width: 300px; }
+        .footer { background: #004a99; color: #fff; padding: 2rem; text-align: center; }
+        h2 { color: #004a99; margin-bottom: 1.5rem; }
     </style>
 </head>
-<body>
+<body id="page-body" lang="el">
     <header class="header">
         <div class="header-left">
             <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
+            <button class="lang-btn" onclick="toggleLanguage()">GR / EN</button>
         </div>
         <nav class="nav">
             <ul class="nav-list">
-                <li><a href="index.html" class="nav-link">HOME</a></li>
-                <li><a href="about.html" class="nav-link active">ABOUT US</a></li>
-                <li><a href="services.html" class="nav-link">SERVICES</a></li>
-                <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
+                <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
+                <li><a href="about.html" class="nav-link active"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
+                <li><a href="services.html" class="nav-link"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
+                <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
             </ul>
-            <a href="appointment.html" class="btn-schedule">SCHEDULE APPOINTMENT</a>
+            <a href="appointment.html" class="btn-schedule"><span class="lang-el">ΡΑΝΤΕΒΟΥ</span><span class="lang-en">APPOINTMENT</span></a>
         </nav>
     </header>
-
     <main>
-        <h2>Our Vision</h2>
-        <p>At BK, we specialize in high-precision engineering and structural design. We take complex blueprints and transform them into functional, safe, and innovative realities. Our team is dedicated to excellence and accuracy in every project we undertake.</p>
+        <h2><span class="lang-el">Η Ιστορία Μας</span><span class="lang-en">Our Story</span></h2>
+        <p>
+            <span class="lang-el">Η BK ειδικεύεται στη μετατροπή σύνθετων μηχανολογικών σχεδίων σε πραγματικότητα με απόλυτη ακρίβεια.</span>
+            <span class="lang-en">BK specialises in transforming complex engineering designs into reality with absolute precision.</span>
+        </p>
     </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col"><p>Location: Al. Panagouli 5, 19300, Aspropyrgos, GR</p></div>
-            <div class="footer-col"><p>contact: Email: bourkarinfo@gmail.com, Phone: 2105572695</p></div>
-        </div>
-    </footer>
+    <footer class="footer"><p>Bourantas-Karympalis, IKE</p></footer>
+    <script>
+        function toggleLanguage() {
+            const body = document.getElementById('page-body');
+            const newLang = body.lang === 'el' ? 'en' : 'el';
+            body.lang = newLang;
+            localStorage.setItem('preferredLang', newLang);
+        }
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            if (savedLang) document.getElementById('page-body').lang = savedLang;
+        };
+    </script>
 </body>
 </html>
