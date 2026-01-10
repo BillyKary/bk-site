@@ -6,47 +6,50 @@
     <title>Bourantas-Karympalis, IKE - appointment</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
-        [lang="en"] .lang-el { display: none; }
-        [lang="el"] .lang-en { display: none; }
-        main { flex: 1; padding: 4rem 5%; background: #f4f7f9; }
-        .app-container { max-width: 900px; margin: 0 auto; background: #fff; display: flex; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        body[lang="en"] .lang-el { display: none !important; }
+        body[lang="el"] .lang-en { display: none !important; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; }
+        .app-container { max-width: 900px; margin: 4rem auto; display: flex; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; }
         .app-info { background: #004a99; color: #fff; padding: 3rem; flex: 1; }
-        .app-form { padding: 3rem; flex: 1.5; }
+        .app-form { padding: 3rem; flex: 1.5; background: #fff; }
         input, select { width: 100%; padding: 0.8rem; margin: 0.5rem 0 1.5rem; border: 1px solid #ddd; border-radius: 4px; }
         .btn-book { background: #004a99; color: #fff; padding: 1rem; border: none; width: 100%; border-radius: 4px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
-<body id="page-body" lang="el">
-    <header style="padding:1rem 5%; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
-        <a href="index.html"><img src="logo.png" alt="BK Logo" height="50"></a>
-        <button onclick="toggleLanguage()" style="padding:0.4rem 0.8rem; border-radius:20px; cursor:pointer; background:#fff; border:1px solid #ddd;">GR / EN</button>
+<body lang="el">
+    <header class="header">
+        <div style="display:flex; align-items:center; gap:15px;">
+            <a href="index.html"><img src="logo.png" alt="BK Logo" height="50"></a>
+            <button onclick="toggleLanguage()" style="padding:0.4rem 0.8rem; border-radius:20px; cursor:pointer; color:#004a99; border:1px solid #004a99; background:#fff; font-weight:bold;">
+                <span class="lang-el">EN</span><span class="lang-en">GR</span>
+            </button>
+        </div>
     </header>
     <main>
         <div class="app-container">
             <div class="app-info">
-                <h2><span class="lang-el">Ραντεβού</span><span class="lang-en">Appointment</span></h2>
-                <p><span class="lang-el">Κλείστε μια συνάντηση.</span><span class="lang-en">Book a meeting.</span></p>
+                <h2><span class="lang-el">Κλείστε Ραντεβού</span><span class="lang-en">Book Appointment</span></h2>
+                <p><span class="lang-el">Επιλέξτε ημερομηνία για τεχνική υποστήριξη.</span><span class="lang-en">Select a date for technical support.</span></p>
             </div>
             <div class="app-form">
                 <form>
                     <label><span class="lang-el">Ημερομηνία</span><span class="lang-en">Date</span></label><input type="date">
-                    <button class="btn-book"><span class="lang-el">ΚΡΑΤΗΣΗ</span><span class="lang-en">BOOK NOW</span></button>
+                    <button class="btn-book"><span class="lang-el">ΕΠΙΒΕΒΑΙΩΣΗ</span><span class="lang-en">CONFIRM</span></button>
                 </form>
             </div>
         </div>
     </main>
     <script>
         function toggleLanguage() {
-            const body = document.getElementById('page-body');
-            const newLang = body.lang === 'el' ? 'en' : 'el';
-            body.lang = newLang;
+            const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
+            document.body.setAttribute('lang', newLang);
             localStorage.setItem('preferredLang', newLang);
         }
-        window.onload = () => {
+        (function() {
             const savedLang = localStorage.getItem('preferredLang');
-            if (savedLang) document.getElementById('page-body').lang = savedLang;
-        };
+            if (savedLang) document.body.setAttribute('lang', savedLang);
+        })();
     </script>
 </body>
 </html>
