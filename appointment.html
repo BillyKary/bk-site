@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bourantas-Karympalis, IKE - Appointment</title>
     <style>
-        /* Same Header CSS as index.html */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { max-width: 100%; overflow-x: hidden; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
         body[lang="en"] .lang-el { display: none !important; }
         body[lang="el"] .lang-en { display: none !important; }
+        
         .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
         .header-branding { flex-grow: 1; text-align: center; font-weight: 800; color: #000; font-size: 1.1rem; padding: 0 10px; text-transform: uppercase; }
         .logo { height: 50px; width: auto; }
@@ -21,12 +21,14 @@
         .btn-schedule { background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
         .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #004a99; }
         #menu-toggle { display: none; }
+
         .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; margin-top: auto; }
         .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 250px; }
         .footer-title { text-decoration: underline; font-weight: bold; margin-bottom: 1rem; display: block; font-size: 1.1rem; }
         .footer-text { line-height: 1.6; opacity: 0.9; font-size: 0.95rem; }
         .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
+
         @media (max-width: 768px) {
             .header-branding { font-size: 0.75rem; }
             .hamburger { display: block; }
@@ -47,7 +49,7 @@
         </div>
         <nav style="flex-shrink: 0;">
             <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="hamburger">&#9776;</label>
+            <label for="menu-toggle" class="hamburger">☰</label>
             <ul class="nav-list">
                 <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
                 <li><a href="about.html" class="nav-link"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
@@ -57,11 +59,12 @@
             </ul>
         </nav>
     </header>
-    <main style="padding: 4rem 5%;">
+
+    <main style="padding: 4rem 5%; flex: 1;">
         <div style="max-width: 900px; margin: 0 auto; display: flex; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-wrap: wrap;">
             <div style="background: #004a99; color: #fff; padding: 3rem; flex: 1; min-width: 300px;">
                 <h2 style="margin-bottom: 1rem;"><span class="lang-el">Κλείστε Ραντεβού</span><span class="lang-en">Book Appointment</span></h2>
-                <p><span class="lang-el">Επιλέξτε μια ημερομηνία για συνάντηση.</span><span class="lang-en">Choose a date for a consultation.</span></p>
+                <p><span class="lang-el">Επιλέξτε μια ημερομηνία για συνάντηση στο γραφείο μας.</span><span class="lang-en">Choose a date for a consultation at our office.</span></p>
             </div>
             <div style="padding: 3rem; flex: 1.5; background: #fff; min-width: 300px;">
                 <form action="https://formspree.io/f/your-id" method="POST">
@@ -71,8 +74,21 @@
             </div>
         </div>
     </main>
+
     <footer class="footer">
-        </footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <span class="footer-title"><span class="lang-el">Διεύθυνση</span><span class="lang-en">Location</span></span>
+                <p class="footer-text"><span class="lang-el">Αλέκου Παναγούλη 5, 19300, Ασπρόπυργος, Ελλάδα</span><span class="lang-en">Alekoy Panagouli 5, 19300, Aspropyrgos, Greece</span></p>
+            </div>
+            <div class="footer-col">
+                <span class="footer-title"><span class="lang-el">Επικοινωνία</span><span class="lang-en">Contact Information</span></span>
+                <p class="footer-text">Email: bourkarinfo@gmail.com<br><span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695</p>
+            </div>
+        </div>
+        <div class="copyright">Bourantas-Karympalis, IKE</div>
+    </footer>
+
     <script>
         function toggleLanguage() {
             const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
