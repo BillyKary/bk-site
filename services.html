@@ -5,28 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bourantas-Karympalis, IKE - Services</title>
     <style>
-        /* Same Header CSS as index.html */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { max-width: 100%; overflow-x: hidden; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
         body[lang="en"] .lang-el { display: none !important; }
         body[lang="el"] .lang-en { display: none !important; }
+        
         .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
         .header-branding { flex-grow: 1; text-align: center; font-weight: 800; color: #000; font-size: 1.1rem; padding: 0 10px; text-transform: uppercase; }
         .logo { height: 50px; width: auto; }
         .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #004a99; border-radius: 20px; cursor: pointer; color: #004a99; font-weight: bold; background: #fff; flex-shrink: 0; }
+        
         .nav-list { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
         .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
         .btn-schedule { background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
         .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #004a99; }
         #menu-toggle { display: none; }
-        .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; margin-top: auto; }
+
+        /* Services Content */
+        .services-container { flex: 1; padding: 4rem 10%; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+        .service-card { padding: 2rem; border: 1px solid #eee; border-radius: 10px; text-align: center; transition: 0.3s; }
+        .service-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .service-card h3 { color: #004a99; margin-bottom: 1rem; }
+
+        /* Footer */
+        .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; }
         .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 250px; }
         .footer-title { text-decoration: underline; font-weight: bold; margin-bottom: 1rem; display: block; font-size: 1.1rem; }
         .footer-text { line-height: 1.6; opacity: 0.9; font-size: 0.95rem; }
         .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
+
         @media (max-width: 768px) {
             .header-branding { font-size: 0.75rem; }
             .hamburger { display: block; }
@@ -47,7 +58,7 @@
         </div>
         <nav style="flex-shrink: 0;">
             <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="hamburger">&#9776;</label>
+            <label for="menu-toggle" class="hamburger">☰</label>
             <ul class="nav-list">
                 <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
                 <li><a href="about.html" class="nav-link"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
@@ -57,15 +68,35 @@
             </ul>
         </nav>
     </header>
-    <main style="flex: 1; padding: 4rem 10%;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-            <div style="padding: 2rem; border: 1px solid #eee; border-radius: 10px; text-align: center;"><h3 style="color:#004a99;"><span class="lang-el">Σχεδίαση Ακριβείας</span><span class="lang-en">Precision Drafting</span></h3></div>
-            <div style="padding: 2rem; border: 1px solid #eee; border-radius: 10px; text-align: center;"><h3 style="color:#004a99;"><span class="lang-el">Δομική Ανάλυση</span><span class="lang-en">Structural Analysis</span></h3></div>
+
+    <main class="services-container">
+        <div class="service-grid">
+            <div class="service-card">
+                <h3><span class="lang-el">Σχεδίαση Ακριβείας</span><span class="lang-en">Precision Drafting</span></h3>
+                <p><span class="lang-el">Λεπτομερή σχέδια CAD για κάθε έργο.</span><span class="lang-en">Detailed CAD drawings for every project.</span></p>
+            </div>
+            <div class="service-card">
+                <h3><span class="lang-el">Δομική Ανάλυση</span><span class="lang-en">Structural Analysis</span></h3>
+                <p><span class="lang-el">Εξασφάλιση στατικής επάρκειας και ασφάλειας.</span><span class="lang-en">Ensuring structural integrity and safety.</span></p>
+            </div>
         </div>
-        <img src="services.png" alt="Our Services Showcase" style="max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+        <img src="services.png" alt="Services" style="max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
     </main>
+
     <footer class="footer">
-        </footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <span class="footer-title"><span class="lang-el">Διεύθυνση</span><span class="lang-en">Location</span></span>
+                <p class="footer-text"><span class="lang-el">Αλέκου Παναγούλη 5, 19300, Ασπρόπυργος, Ελλάδα</span><span class="lang-en">Alekoy Panagouli 5, 19300, Aspropyrgos, Greece</span></p>
+            </div>
+            <div class="footer-col">
+                <span class="footer-title"><span class="lang-el">Επικοινωνία</span><span class="lang-en">Contact Information</span></span>
+                <p class="footer-text">Email: bourkarinfo@gmail.com<br><span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695</p>
+            </div>
+        </div>
+        <div class="copyright">Bourantas-Karympalis, IKE</div>
+    </footer>
+
     <script>
         function toggleLanguage() {
             const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
