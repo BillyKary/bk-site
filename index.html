@@ -8,12 +8,37 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { max-width: 100%; overflow-x: hidden; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
+        
+        /* Language Toggle Logic */
         body[lang="en"] .lang-el { display: none !important; }
         body[lang="el"] .lang-en { display: none !important; }
         
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+        /* Header Layout */
+        .header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 1rem 5%; 
+            background: #fff; 
+            border-bottom: 1px solid #eee; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+
+        /* Branding Text - Centered & Solid Black */
+        .header-branding {
+            flex-grow: 1;
+            text-align: center;
+            font-weight: 800; /* Extra bold for contrast */
+            color: #000000; /* Solid Black */
+            font-size: 1.1rem;
+            padding: 0 10px;
+            text-transform: uppercase; /* Professional look */
+        }
+
         .logo { height: 50px; width: auto; }
-        .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #004a99; border-radius: 20px; cursor: pointer; color: #004a99; font-weight: bold; background: #fff; transition: 0.3s; }
+        .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #004a99; border-radius: 20px; cursor: pointer; color: #004a99; font-weight: bold; background: #fff; transition: 0.3s; flex-shrink: 0; }
         .lang-btn:hover { background: #004a99; color: #fff; }
         
         .nav-list { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
@@ -24,11 +49,13 @@
         .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #004a99; }
         #menu-toggle { display: none; }
 
+        /* Main/Hero Section */
         main { flex: 1; }
         .hero { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('background.png') center/cover; height: 80vh; display: flex; align-items: center; padding: 0 10%; }
         .hero-title { color: #fff; font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; }
         .btn-discover { display: inline-block; background: #fff; color: #004a99; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
 
+        /* Footer */
         .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; }
         .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 250px; }
@@ -36,11 +63,12 @@
         .footer-text { line-height: 1.6; opacity: 0.9; font-size: 0.95rem; }
         .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
 
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
+            .header-branding { font-size: 0.75rem; letter-spacing: -0.5px; } /* Prevent overlap on small screens */
             .hamburger { display: block; }
             .nav-list { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #fff; padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; }
             #menu-toggle:checked ~ .nav-list { display: flex; }
-            .footer-container { flex-direction: column; text-align: center; }
             .hero-title { font-size: 2rem; }
             .hero { padding: 0 5%; }
         }
@@ -48,11 +76,17 @@
 </head>
 <body lang="el">
     <header class="header">
-        <div style="display:flex; align-items:center; gap:15px;">
+        <div style="display:flex; align-items:center; gap:12px; flex-shrink: 0;">
             <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
             <button class="lang-btn" onclick="toggleLanguage()"><span class="lang-el">EN</span><span class="lang-en">GR</span></button>
         </div>
-        <nav>
+
+        <div class="header-branding">
+            <span class="lang-el">ΜΠΟΥΡΑΝΤΑΣ - ΚΑΡΥΜΠΑΛΗΣ, ΙΚΕ</span>
+            <span class="lang-en">BOURANTAS - KARYMPALIS, IKE</span>
+        </div>
+
+        <nav style="flex-shrink: 0;">
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="hamburger">&#9776;</label>
             <ul class="nav-list">
@@ -64,6 +98,7 @@
             </ul>
         </nav>
     </header>
+
     <main>
         <section class="hero">
             <div>
@@ -75,6 +110,7 @@
             </div>
         </section>
     </main>
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-col">
@@ -88,6 +124,7 @@
         </div>
         <div class="copyright">Bourantas-Karympalis, IKE</div>
     </footer>
+
     <script>
         function toggleLanguage() {
             const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
