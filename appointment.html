@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bourantas-Karympalis, IKE - Appointment</title>
+    <title>Bourantas - Karympalis, P.C. - Appointment</title>
     <style>
         /* Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,21 +37,12 @@
 
         /* Appointment Content Layout */
         main { flex: 1; padding: 4rem 5%; display: flex; align-items: center; justify-content: center; }
-        .appointment-box { 
-            max-width: 900px; width: 100%; display: flex; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; 
-        }
-        .appointment-branding { 
-            background: #004a99; color: #fff; padding: 3rem; flex: 1; min-width: 300px; 
-        }
-        .appointment-form-container { 
-            padding: 3rem; flex: 1.5; background: #fff; min-width: 300px; 
-        }
+        .appointment-box { max-width: 900px; width: 100%; display: flex; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; }
+        .appointment-branding { background: #004a99; color: #fff; padding: 3rem; flex: 1; min-width: 300px; }
+        .appointment-form-container { padding: 3rem; flex: 1.5; background: #fff; min-width: 300px; }
 
         /* Form Styling */
-        .appointment-form input[type="date"] {
-            width: 100%; padding: 0.8rem; margin-bottom: 1.5rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit;
-        }
+        .appointment-form input[type="date"] { width: 100%; padding: 0.8rem; margin-bottom: 1.5rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
         .btn-confirm { background: #004a99; color: #fff; border: none; padding: 1rem; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; }
         .btn-confirm:hover { background: #003366; }
 
@@ -68,11 +59,7 @@
         @media (max-width: 1000px) {
             .header-branding { font-size: 0.75rem; }
             .hamburger { display: block; }
-            .nav-list { 
-                display: none; flex-direction: column; position: absolute; 
-                top: 70px; left: 0; width: 100%; background: #fff; 
-                padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; 
-            }
+            .nav-list { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #fff; padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; }
             #menu-toggle:checked ~ .nav-list { display: flex; }
             .appointment-box { flex-direction: column; }
             .appointment-branding { padding: 2rem; }
@@ -85,13 +72,11 @@
     <header class="header">
         <div style="display:flex; align-items:center; gap:12px; flex-shrink: 0;">
             <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
-            <button class="lang-btn" onclick="toggleLanguage()">
-                <span class="lang-el">EN</span><span class="lang-en">GR</span>
-            </button>
+            <button class="lang-btn" onclick="toggleLanguage()"><span class="lang-el">EN</span><span class="lang-en">GR</span></button>
         </div>
         <div class="header-branding">
-            <span class="lang-el">ΜΠΟΥΡΑΝΤΑΣ - ΚΑΡΥΜΠΑΛΗΣ, ΙΚΕ</span>
-            <span class="lang-en">BOURANTAS - KARYMPALIS, IKE</span>
+            <span class="lang-el">ΜΠΟΥΡΑΝΤΑΣ - ΚΑΡΥΜΠΑΛΗΣ, Ι.Κ.Ε.</span>
+            <span class="lang-en">BOURANTAS - KARYMPALIS, P.C.</span>
         </div>
         <nav style="flex-shrink: 0;">
             <input type="checkbox" id="menu-toggle">
@@ -138,31 +123,19 @@
         <div class="footer-container">
             <div class="footer-col">
                 <span class="footer-title"><span class="lang-el">Διεύθυνση</span><span class="lang-en">Location</span></span>
-                <p class="footer-text">
-                    <span class="lang-el">Αλέκου Παναγούλη 5, 19300, Ασπρόπυργος, Ελλάδα</span>
-                    <span class="lang-en">Alekoy Panagouli 5, 19300, Aspropyrgos, Greece</span>
-                </p>
+                <p class="footer-text"><span class="lang-el">Αλέκου Παναγούλη 5, 19300, Ασπρόπυργος, Ελλάδα</span><span class="lang-en">Alekoy Panagouli 5, 19300, Aspropyrgos, Greece</span></p>
             </div>
             <div class="footer-col">
                 <span class="footer-title"><span class="lang-el">Επικοινωνία</span><span class="lang-en">Contact Information</span></span>
-                <p class="footer-text">Email: bourkarinfo@gmail.com<br>
-                    <span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695
-                </p>
+                <p class="footer-text">Email: bourkarinfo@gmail.com<br><span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695</p>
             </div>
         </div>
-        <div class="copyright">Bourantas-Karympalis, IKE</div>
+        <div class="copyright">Bourantas - Karympalis, P.C.</div>
     </footer>
 
     <script>
-        function toggleLanguage() {
-            const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
-            document.body.setAttribute('lang', newLang);
-            localStorage.setItem('preferredLang', newLang);
-        }
-        (function() {
-            const savedLang = localStorage.getItem('preferredLang');
-            if (savedLang) document.body.setAttribute('lang', savedLang);
-        })();
+        function toggleLanguage() { const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el'; document.body.setAttribute('lang', newLang); localStorage.setItem('preferredLang', newLang); }
+        (function() { const savedLang = localStorage.getItem('preferredLang'); if (savedLang) document.body.setAttribute('lang', savedLang); })();
     </script>
 </body>
 </html>
