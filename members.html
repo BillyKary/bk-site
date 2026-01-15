@@ -15,17 +15,17 @@
         body[lang="el"] .lang-en { display: none !important; }
 
         /* Header Layout */
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
-        .header-branding { flex-grow: 1; text-align: center; font-weight: 800; color: #000; font-size: 1.1rem; padding: 0 10px; text-transform: uppercase; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 3%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+        .header-branding { flex-grow: 1; text-align: center; font-weight: 800; color: #000; font-size: 1.05rem; padding: 0 10px; text-transform: uppercase; }
         .logo { height: 50px; width: auto; }
         .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #004a99; border-radius: 20px; cursor: pointer; color: #004a99; font-weight: bold; background: #fff; flex-shrink: 0; transition: 0.3s; }
         .lang-btn:hover { background: #004a99; color: #fff; }
 
         /* Navigation */
-        .nav-list { display: flex; list-style: none; gap: 1.2rem; align-items: center; }
-        .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.8rem; }
+        .nav-list { display: flex; list-style: none; gap: 0.9rem; align-items: center; }
+        .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.75rem; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
-        .btn-schedule { background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
+        .btn-schedule { background: #004a99; color: #fff; padding: 0.6rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.75rem; }
 
         /* Mobile Menu Controls */
         .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #004a99; }
@@ -61,8 +61,8 @@
         .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
 
         /* Responsive Breakpoints */
-        @media (max-width: 1100px) { .nav-list { gap: 0.8rem; } .nav-link { font-size: 0.7rem; } }
-        @media (max-width: 850px) {
+        @media (max-width: 1200px) { .nav-list { gap: 0.6rem; } .nav-link { font-size: 0.7rem; } }
+        @media (max-width: 1000px) {
             .header-branding { font-size: 0.75rem; }
             .hamburger { display: block; }
             .nav-list { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #fff; padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; }
@@ -93,6 +93,7 @@
                 <li><a href="index.html" class="nav-link"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
                 <li><a href="about.html" class="nav-link"><span class="lang-el">Η ΕΤΑΙΡΕΙΑ ΜΑΣ</span><span class="lang-en">OUR COMPANY</span></a></li>
                 <li><a href="members.html" class="nav-link active"><span class="lang-el">ΣΤΟΙΧΕΙΑ ΕΤΑΙΡΩΝ</span><span class="lang-en">COMPANY MEMBERS</span></a></li>
+                <li><a href="balance.html" class="nav-link"><span class="lang-el">ΙΣΟΛΟΓΙΣΜΟΣ</span><span class="lang-en">BALANCE SHEET</span></a></li>
                 <li><a href="services.html" class="nav-link"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
                 <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
                 <li><a href="appointment.html" class="btn-schedule"><span class="lang-el">ΡΑΝΤΕΒΟΥ</span><span class="lang-en">APPOINTMENT</span></a></li>
