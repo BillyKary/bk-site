@@ -5,39 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bourantas-Karympalis, IKE - Home</title>
     <style>
+        /* Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { max-width: 100%; overflow-x: hidden; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
-        
-        /* Language Toggle */
+
+        /* Language Toggle Logic */
         body[lang="en"] .lang-el { display: none !important; }
         body[lang="el"] .lang-en { display: none !important; }
-        
-        /* Header */
+
+        /* Header Layout */
         .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
         .header-branding { flex-grow: 1; text-align: center; font-weight: 800; color: #000; font-size: 1.1rem; padding: 0 10px; text-transform: uppercase; }
         .logo { height: 50px; width: auto; }
-        .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #004a99; border-radius: 20px; cursor: pointer; color: #004a99; font-weight: bold; background: #fff; flex-shrink: 0; }
-        
-        .nav-list { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
-        .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.85rem; }
+        .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #004a99; border-radius: 20px; cursor: pointer; color: #004a99; font-weight: bold; background: #fff; flex-shrink: 0; transition: 0.3s; }
+        .lang-btn:hover { background: #004a99; color: #fff; }
+
+        /* Navigation */
+        .nav-list { display: flex; list-style: none; gap: 1.2rem; align-items: center; }
+        .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.8rem; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
         .btn-schedule { background: #004a99; color: #fff; padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
+
+        /* Mobile Menu Controls */
         .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #004a99; }
         #menu-toggle { display: none; }
 
-        /* HERO SECTION - Desktop Strategy */
+        /* Hero Section */
         main { flex: 1; }
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('background.png');
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('background.png') center/cover no-repeat; 
             height: 80vh; 
             display: flex; 
             align-items: center; 
             padding: 0 10%; 
-            transition: height 0.3s ease;
+            transition: height 0.3s ease; 
         }
         .hero-title { color: #fff; font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         .btn-discover { display: inline-block; background: #fff; color: #004a99; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
@@ -50,20 +52,20 @@
         .footer-text { line-height: 1.6; opacity: 0.9; font-size: 0.95rem; }
         .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
 
-        /* MOBILE ADJUSTMENTS */
-        @media (max-width: 768px) {
-            .header-branding { font-size: 0.75rem; letter-spacing: -0.5px; }
+        /* Responsive Breakpoints */
+        @media (max-width: 1100px) { .nav-list { gap: 0.8rem; } .nav-link { font-size: 0.7rem; } }
+        @media (max-width: 850px) {
+            .header-branding { font-size: 0.75rem; }
             .hamburger { display: block; }
-            .nav-list { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #fff; padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; }
-            #menu-toggle:checked ~ .nav-list { display: flex; }
-            
-            /* Background Fix: Change height to prevent extreme zoom */
-            .hero { 
-                height: 50vh; 
-                background-position: center center;
-                padding: 0 5%;
+            .nav-list { 
+                display: none; flex-direction: column; position: absolute; 
+                top: 70px; left: 0; width: 100%; background: #fff; 
+                padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; 
             }
+            #menu-toggle:checked ~ .nav-list { display: flex; }
+            .hero { height: 50vh; padding: 0 5%; }
             .hero-title { font-size: 1.8rem; }
+            .footer-container { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -71,7 +73,9 @@
     <header class="header">
         <div style="display:flex; align-items:center; gap:12px; flex-shrink: 0;">
             <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
-            <button class="lang-btn" onclick="toggleLanguage()"><span class="lang-el">EN</span><span class="lang-en">GR</span></button>
+            <button class="lang-btn" onclick="toggleLanguage()">
+                <span class="lang-el">EN</span><span class="lang-en">GR</span>
+            </button>
         </div>
         <div class="header-branding">
             <span class="lang-el">ΜΠΟΥΡΑΝΤΑΣ - ΚΑΡΥΜΠΑΛΗΣ, ΙΚΕ</span>
@@ -79,10 +83,11 @@
         </div>
         <nav style="flex-shrink: 0;">
             <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="hamburger">&#9776;</label>
+            <label for="menu-toggle" class="hamburger">☰</label>
             <ul class="nav-list">
                 <li><a href="index.html" class="nav-link active"><span class="lang-el">ΑΡΧΙΚΗ</span><span class="lang-en">HOME</span></a></li>
-                <li><a href="about.html" class="nav-link"><span class="lang-el">ΣΧΕΤΙΚΑ</span><span class="lang-en">ABOUT US</span></a></li>
+                <li><a href="about.html" class="nav-link"><span class="lang-el">Η ΕΤΑΙΡΕΙΑ ΜΑΣ</span><span class="lang-en">OUR COMPANY</span></a></li>
+                <li><a href="members.html" class="nav-link"><span class="lang-el">ΣΤΟΙΧΕΙΑ ΕΤΑΙΡΩΝ</span><span class="lang-en">COMPANY MEMBERS</span></a></li>
                 <li><a href="services.html" class="nav-link"><span class="lang-el">ΥΠΗΡΕΣΙΕΣ</span><span class="lang-en">SERVICES</span></a></li>
                 <li><a href="contact.html" class="nav-link"><span class="lang-el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="lang-en">CONTACT US</span></a></li>
                 <li><a href="appointment.html" class="btn-schedule"><span class="lang-el">ΡΑΝΤΕΒΟΥ</span><span class="lang-en">APPOINTMENT</span></a></li>
@@ -97,7 +102,9 @@
                     <span class="lang-el">ΑΠΟ ΤΟ ΣΧΕΔΙΟ ΣΤΗΝ ΠΡΑΓΜΑΤΙΚΟΤΗΤΑ:<br>ΟΠΟΥ ΤΟ DESIGN ΣΥΝΑΝΤΑ ΤΗΝ ΑΚΡΙΒΕΙΑ</span>
                     <span class="lang-en">BLUEPRINTS TO REALITY:<br>WHERE DESIGN MEETS PRECISION</span>
                 </h1>
-                <a href="services.html" class="btn-discover"><span class="lang-el">ΤΟ ΕΡΓΟ ΜΑΣ</span><span class="lang-en">OUR WORK</span></a>
+                <a href="services.html" class="btn-discover">
+                    <span class="lang-el">ΤΟ ΕΡΓΟ ΜΑΣ</span><span class="lang-en">OUR WORK</span>
+                </a>
             </div>
         </section>
     </main>
@@ -113,7 +120,9 @@
             </div>
             <div class="footer-col">
                 <span class="footer-title"><span class="lang-el">Επικοινωνία</span><span class="lang-en">Contact Information</span></span>
-                <p class="footer-text">Email: bourkarinfo@gmail.com<br><span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695</p>
+                <p class="footer-text">Email: bourkarinfo@gmail.com<br>
+                    <span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695
+                </p>
             </div>
         </div>
         <div class="copyright">Bourantas-Karympalis, IKE</div>
