@@ -36,14 +36,15 @@
         .info-card { background: #f9f9f9; padding: 3rem; border-radius: 8px; border-left: 5px solid #004a99; text-align: center; }
         .info-title { color: #004a99; margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; font-size: 1.5rem; text-align: left; }
         
-        /* Download Link Styling */
-        .pdf-link { 
+        /* Portal Link Styling */
+        .portal-link { 
             display: inline-flex; align-items: center; gap: 10px;
             color: #004a99; font-weight: bold; text-decoration: none; 
-            font-size: 1.1rem; padding: 1rem 2rem; border: 2px solid #004a99; 
-            border-radius: 5px; transition: 0.3s; 
+            font-size: 1.1rem; padding: 1.5rem 2rem; border: 2px solid #004a99; 
+            border-radius: 5px; transition: 0.3s; line-height: 1.4;
+            max-width: 100%;
         }
-        .pdf-link:hover { background: #004a99; color: #fff; }
+        .portal-link:hover { background: #004a99; color: #fff; }
 
         /* Footer */
         .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; }
@@ -99,13 +100,13 @@
     <main>
         <div class="info-card">
             <h2 class="info-title">
-                <span class="lang-el">Πρόσφατος Ισολογισμός</span>
-                <span class="lang-en">Recent Balance Sheet</span>
+                <span class="lang-el">Οικονομικά Στοιχεία</span>
+                <span class="lang-en">Financial Data</span>
             </h2>
 
-            <a href="balance.pdf" class="pdf-link" target="_blank">
-                <span class="lang-el">Κάντε κλικ εδώ για να κατεβάσετε τον τελευταίο ισολογισμό (PDF)</span>
-                <span class="lang-en">Click here to download the latest balance sheet (PDF)</span>
+            <a href="https://publicity.businessportal.gr/company/175665807000" class="portal-link" target="_blank">
+                <span class="lang-el">Κάντε κλικ εδώ για να μεταβείτε στον τελευταίο ισολογισμό και τα σχετικά οικονομικά στοιχεία</span>
+                <span class="lang-en">Click here to access the latest balance sheet and relevant financial data</span>
             </a>
         </div>
     </main>
