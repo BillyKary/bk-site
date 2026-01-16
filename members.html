@@ -33,25 +33,16 @@
 
         /* Content Styling */
         main { flex: 1; padding: 3rem 10%; }
-        .info-card { background: #f9f9f9; padding: 2rem; border-radius: 8px; border-left: 5px solid #004a99; }
+        .info-card { background: #f9f9f9; padding: 2.5rem; border-radius: 8px; border-left: 5px solid #004a99; max-width: 800px; margin: 0 auto; }
         .info-title { color: #004a99; margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; font-size: 1.5rem; }
 
-        /* Member Row Layout */
-        .member-row { display: flex; align-items: center; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid #eee; }
-        .member-row:last-child { border-bottom: none; margin-bottom: 0; }
+        /* Simplified Member Layout */
+        .member-block { margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee; }
+        .member-block:last-child { border-bottom: none; margin-bottom: 0; }
         
-        .photo-column { flex: 0 0 200px; text-align: center; }
-        .photo-placeholder { 
-            width: 180px; height: 240px; border: 2px dashed #ccc; 
-            border-radius: 50% / 40%; display: flex; align-items: center; 
-            justify-content: center; background: #fff; color: #999; 
-            font-size: 0.8rem; margin: 0 auto; 
-        }
-        
-        .data-column { flex: 1; }
-        .info-item { margin-bottom: 0.8rem; font-size: 0.95rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 0.4rem; }
-        .info-item strong { display: inline-block; width: 180px; color: #555; }
-        .manager-tag { background: #004a99; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 10px; text-transform: uppercase; }
+        .info-item { margin-bottom: 0.8rem; font-size: 1rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 0.5rem; display: flex; justify-content: flex-start; }
+        .info-item strong { width: 220px; color: #555; flex-shrink: 0; }
+        .manager-tag { background: #004a99; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 10px; text-transform: uppercase; display: inline-block; line-height: 1.4; }
 
         /* Footer */
         .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; }
@@ -62,14 +53,13 @@
         .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
 
         /* Responsive Breakpoints */
-        @media (max-width: 1200px) { .nav-list { gap: 0.6rem; } .nav-link { font-size: 0.7rem; } }
         @media (max-width: 1000px) {
             .header-branding { font-size: 0.75rem; }
             .hamburger { display: block; }
             .nav-list { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #fff; padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; }
             #menu-toggle:checked ~ .nav-list { display: flex; }
-            .member-row { flex-direction: column; gap: 1.5rem; text-align: left; }
-            .info-item strong { width: 100%; display: block; margin-bottom: 2px; }
+            .info-item { flex-direction: column; }
+            .info-item strong { width: 100%; margin-bottom: 4px; }
             main { padding: 2rem 5%; }
             .footer-container { flex-direction: column; text-align: center; }
         }
@@ -109,64 +99,48 @@
                 <span class="lang-en">Company Members</span>
             </h2>
 
-            <div class="member-row">
-                <div class="photo-column">
-                    <div class="photo-placeholder">
+            <div class="member-block">
+                <div class="info-item">
+                    <strong><span class="lang-el">ΟΝΟΜΑΤΕΠΩΝΥΜΟ:</span><span class="lang-en">NAME:</span></strong>
+                    <span>
                         <span class="lang-el">Μπουραντάς Μελέτιος</span>
                         <span class="lang-en">Bourantas Meletios</span>
-                    </div>
+                    </span>
                 </div>
-                <div class="data-column">
-                    <div class="info-item">
-                        <strong><span class="lang-el">ΟΝΟΜΑΤΕΠΩΝΥΜΟ:</span><span class="lang-en">NAME:</span></strong>
-                        <span>
-                            <span class="lang-el">Μπουραντάς Μελέτιος</span>
-                            <span class="lang-en">Bourantas Meletios</span>
-                        </span>
-                    </div>
-                    <div class="info-item">
-                        <strong><span class="lang-el">ΙΔΙΟΤΗΤΑ:</span><span class="lang-en">ROLE:</span></strong>
-                        <span class="lang-el">Εταίρος / Μηχανικός</span><span class="lang-en">Partner / Engineer</span>
-                    </div>
-                    <div class="info-item">
-                        <strong><span class="lang-el">ΑΦΜ:</span><span class="lang-en">VAT NUMBER:</span></strong>
-                        <span>026308230</span>
-                    </div>
-                    <div class="info-item">
-                        <strong><span class="lang-el">ΕΙΣΦΟΡΑ:</span><span class="lang-en">CONTRIBUTION:</span></strong>
-                        <span>5%</span>
-                    </div>
+                <div class="info-item">
+                    <strong><span class="lang-el">ΙΔΙΟΤΗΤΑ:</span><span class="lang-en">ROLE:</span></strong>
+                    <span class="lang-el">Εταίρος / Μηχανικός</span><span class="lang-en">Partner / Engineer</span>
+                </div>
+                <div class="info-item">
+                    <strong><span class="lang-el">ΕΙΣΦΟΡΑ:</span><span class="lang-en">CONTRIBUTION:</span></strong>
+                    <span>5%</span>
+                </div>
+                <div class="info-item">
+                    <strong><span class="lang-el">ΕΙΔΟΣ ΕΙΣΦΟΡΑΣ:</span><span class="lang-en">CONTRIBUTION TYPE:</span></strong>
+                    <span><span class="lang-el">Κεφαλαιακή</span><span class="lang-en">Capital</span></span>
                 </div>
             </div>
 
-            <div class="member-row">
-                <div class="photo-column">
-                    <div class="photo-placeholder">
+            <div class="member-block">
+                <div class="info-item">
+                    <strong><span class="lang-el">ΟΝΟΜΑΤΕΠΩΝΥΜΟ:</span><span class="lang-en">NAME:</span></strong>
+                    <span>
                         <span class="lang-el">Καρύμπαλης Παναγιώτης</span>
                         <span class="lang-en">Karympalis Panagiotis</span>
-                    </div>
+                        <span class="manager-tag"><span class="lang-el">ΔΙΑΧΕΙΡΙΣΤΗΣ</span><span class="lang-en">MANAGER</span></span>
+                    </span>
                 </div>
-                <div class="data-column">
-                    <div class="info-item">
-                        <strong><span class="lang-el">ΟΝΟΜΑΤΕΠΩΝΥΜΟ:</span><span class="lang-en">NAME:</span></strong>
-                        <span>
-                            <span class="lang-el">Καρύμπαλης Παναγιώτης</span>
-                            <span class="lang-en">Karympalis Panagiotis</span>
-                            <span class="manager-tag"><span class="lang-el">ΔΙΑΧΕΙΡΙΣΤΗΣ</span><span class="lang-en">MANAGER</span></span>
-                        </span>
-                    </div>
-                    <div class="info-item">
-                        <strong><span class="lang-el">ΙΔΙΟΤΗΤΑ:</span><span class="lang-en">ROLE:</span></strong>
-                        <span class="lang-el">Εταίρος / Μηχανικός</span><span class="lang-en">Partner / Engineer</span>
-                    </div>
-                    <div class="info-item">
-                        <strong><span class="lang-el">ΑΦΜ:</span><span class="lang-en">VAT NUMBER:</span></strong>
-                        <span>078311895</span>
-                    </div>
-                    <div class="info-item">
-                        <strong><span class="lang-el">ΕΙΣΦΟΡΑ:</span><span class="lang-en">CONTRIBUTION:</span></strong>
-                        <span>95%</span>
-                    </div>
+                <div class="info-item">
+                    <strong><span class="lang-el">ΙΔΙΟΤΗΤΑ:</span><span class="lang-en">ROLE:</span></strong>
+                    <span class="lang-el">Εταίρος / Μηχανικός</span><span class="lang-en">Partner / Engineer</span>
+                </div>
+                <div class="info-item">
+                    <strong><span class="lang-el">ΕΙΣΦΟΡΑ:</span><span class="lang-en">CONTRIBUTION:</span></strong>
+                    <span>95%</span>
+                </div>
+                <div class="info-item">
+                    <strong><span class="lang-el">ΕΙΔΟΣ ΕΙΣΦΟΡΑΣ:</span><span class="lang-en">CONTRIBUTION TYPE:</span></strong>
+                    <span><span class="lang-el">Κεφαλαιακή</span><span class="lang-en">Capital</span></span>
                 </div>
             </div>
         </div>
