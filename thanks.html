@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bourantas - Karympalis, P.C. - Success</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; color: #333; background: #f4f7f9; }
+        body[lang="en"] .lang-el { display: none !important; }
+        body[lang="el"] .lang-en { display: none !important; }
+        .thanks-card { background: #fff; padding: 4rem 2rem; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; max-width: 500px; width: 90%; border-top: 8px solid #004a99; }
+        .icon-circle { width: 80px; height: 80px; background: #e6f0ff; color: #004a99; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; margin: 0 auto 2rem; }
+        h1 { color: #004a99; margin-bottom: 1.5rem; font-size: 2rem; }
+        p { line-height: 1.6; margin-bottom: 2.5rem; color: #555; font-size: 1.1rem; }
+        .btn-home { display: inline-block; background: #004a99; color: #fff; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 74, 153, 0.3); }
+        .btn-home:hover { background: #003366; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 74, 153, 0.4); }
+    </style>
+</head>
+<body lang="el">
+    <div class="thanks-card">
+        <div class="icon-circle">✓</div>
+        <h1 class="lang-el">Ευχαριστούμε!</h1>
+        <h1 class="lang-en">Thank You!</h1>
+        <p class="lang-el">Το αίτημά σας υποβλήθηκε με επιτυχία. Θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό για να σας εξυπηρετήσουμε.</p>
+        <p class="lang-en">Your request has been submitted successfully. We will contact you as soon as possible to assist you.</p>
+        <a href="index.html" class="btn-home">
+            <span class="lang-el">ΕΠΙΣΤΡΟΦΗ ΣΤΗΝ ΑΡΧΙΚΗ</span>
+            <span class="lang-en">BACK TO HOME</span>
+        </a>
+    </div>
+    <script>
+        (function() { const savedLang = localStorage.getItem('preferredLang'); if (savedLang) document.body.setAttribute('lang', savedLang); })();
+    </script>
+</body>
+</html>
