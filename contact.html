@@ -5,52 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bourantas - Karympalis, P.C. - Contact</title>
     <style>
-        /* Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { max-width: 100%; overflow-x: hidden; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
-
-        /* Language Toggle Logic */
         body[lang="en"] .lang-el { display: none !important; }
         body[lang="el"] .lang-en { display: none !important; }
-
-        /* Header Layout */
         .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 3%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
         .header-branding { flex-grow: 1; text-align: center; font-weight: 800; color: #000; font-size: 1.05rem; padding: 0 10px; text-transform: uppercase; }
         .logo { height: 50px; width: auto; }
         .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #004a99; border-radius: 20px; cursor: pointer; color: #004a99; font-weight: bold; background: #fff; flex-shrink: 0; transition: 0.3s; }
         .lang-btn:hover { background: #004a99; color: #fff; }
-
-        /* Navigation */
         .nav-list { display: flex; list-style: none; gap: 0.9rem; align-items: center; }
         .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.75rem; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
         .btn-schedule { background: #004a99; color: #fff; padding: 0.6rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.75rem; }
-
-        /* Mobile Menu Controls */
         .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #004a99; }
         #menu-toggle { display: none; }
-
-        /* Contact Content Layout */
         main { flex: 1; max-width: 1200px; margin: 3rem auto; padding: 0 5%; display: flex; gap: 2rem; width: 100%; }
         .contact-form-container { flex: 1; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); min-width: 300px; }
         .map-container { flex: 1; border-radius: 8px; overflow: hidden; min-width: 300px; height: 450px; background: #eee; }
-
-        /* Form Styling */
         .contact-form input, .contact-form textarea { width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
         .btn-submit { background: #004a99; color: #fff; border: none; padding: 1rem; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; }
         .btn-submit:hover { background: #003366; }
-
-        /* Footer */
         .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; }
         .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 250px; }
         .footer-title { text-decoration: underline; font-weight: bold; margin-bottom: 1rem; display: block; font-size: 1.1rem; }
         .footer-text { line-height: 1.6; opacity: 0.9; font-size: 0.95rem; }
         .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 1200px) { .nav-list { gap: 0.6rem; } .nav-link { font-size: 0.7rem; } }
         @media (max-width: 1000px) {
             .header-branding { font-size: 0.75rem; }
             .hamburger { display: block; }
@@ -58,7 +40,6 @@
             #menu-toggle:checked ~ .nav-list { display: flex; }
             main { flex-direction: column; margin: 1.5rem auto; }
             .map-container { height: 350px; }
-            .footer-container { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -66,9 +47,7 @@
     <header class="header">
         <div style="display:flex; align-items:center; gap:12px; flex-shrink: 0;">
             <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
-            <button class="lang-btn" onclick="toggleLanguage()">
-                <span class="lang-el">EN</span><span class="lang-en">GR</span>
-            </button>
+            <button class="lang-btn" onclick="toggleLanguage()"><span class="lang-el">EN</span><span class="lang-en">GR</span></button>
         </div>
         <div class="header-branding">
             <span class="lang-el">ΜΠΟΥΡΑΝΤΑΣ - ΚΑΡΥΜΠΑΛΗΣ, Ι.Κ.Ε.</span>
@@ -88,14 +67,13 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <div class="contact-form-container">
             <h2 style="color:#004a99; margin-bottom: 1.5rem;">
-                <span class="lang-el">Επικοινωνήστε Μαζί Μας</span>
-                <span class="lang-en">Contact Us</span>
+                <span class="lang-el">Επικοινωνήστε Μαζί Μας</span><span class="lang-en">Contact Us</span>
             </h2>
-            <form class="contact-form" action="https://formspree.io/f/xnjpepoa" method="POST">
+            <form action="https://formspree.io/f/xnjpepoa" method="POST" class="contact-form">
+                <input type="hidden" name="_next" value="insert website url here/thanks.html">
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="_replyto" placeholder="Email" required>
                 <textarea name="message" rows="5" placeholder="Message" required></textarea>
@@ -104,41 +82,26 @@
                 </button>
             </form>
         </div>
-
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.8443907718034!2d23.593856!3d38.0274154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1a457f0000001%3A0xc6658572695!2zQWxla291IFBhbmFnb3VsaSA1LCBBc3Byb3B5cmdvcyAxOTMgMDA!5e0!3m2!1sen!2sgr!4v1710000000000!5m2!1sen!2sgr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.8443907718034!2d23.593856!3d38.0274154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1a457f0000001%3A0xc6658572695!2zQWxla291IFBhbmFnb3VsaSA1LCBBc3Byb3B5cmdvcyAxOTMgMDA!5e0!3m2!1sen!2sgr!4v1710000000000!5m2!1sen!2sgr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </main>
-
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-col">
                 <span class="footer-title"><span class="lang-el">Διεύθυνση</span><span class="lang-en">Location</span></span>
-                <p class="footer-text">
-                    <span class="lang-el">Αλέκου Παναγούλη 5, 19300, Ασπρόπυργος, Ελλάδα</span>
-                    <span class="lang-en">Alekoy Panagouli 5, 19300, Aspropyrgos, Greece</span>
-                </p>
+                <p class="footer-text"><span class="lang-el">Αλέκου Παναγούλη 5, 19300, Ασπρόπυργος, Ελλάδα</span><span class="lang-en">Alekoy Panagouli 5, 19300, Aspropyrgos, Greece</span></p>
             </div>
             <div class="footer-col">
                 <span class="footer-title"><span class="lang-el">Επικοινωνία</span><span class="lang-en">Contact Information</span></span>
-                <p class="footer-text">Email: bourkarinfo@gmail.com<br>
-                    <span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695
-                </p>
+                <p class="footer-text">Email: bourkarinfo@gmail.com<br><span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695</p>
             </div>
         </div>
         <div class="copyright">Bourantas - Karympalis, P.C.</div>
     </footer>
-
     <script>
-        function toggleLanguage() {
-            const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
-            document.body.setAttribute('lang', newLang);
-            localStorage.setItem('preferredLang', newLang);
-        }
-        (function() {
-            const savedLang = localStorage.getItem('preferredLang');
-            if (savedLang) document.body.setAttribute('lang', savedLang);
-        })();
+        function toggleLanguage() { const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el'; document.body.setAttribute('lang', newLang); localStorage.setItem('preferredLang', newLang); }
+        (function() { const savedLang = localStorage.getItem('preferredLang'); if (savedLang) document.body.setAttribute('lang', savedLang); })();
     </script>
 </body>
 </html>
