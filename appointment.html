@@ -5,62 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bourantas - Karympalis, P.C. - Appointment</title>
     <style>
-        /* Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { max-width: 100%; overflow-x: hidden; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
-
-        /* Language Toggle Logic */
         body[lang="en"] .lang-el { display: none !important; }
         body[lang="el"] .lang-en { display: none !important; }
-
-        /* Header Layout */
         .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 3%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
         .header-branding { flex-grow: 1; text-align: center; font-weight: 800; color: #000; font-size: 1.05rem; padding: 0 10px; text-transform: uppercase; }
         .logo { height: 50px; width: auto; }
         .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #004a99; border-radius: 20px; cursor: pointer; color: #004a99; font-weight: bold; background: #fff; flex-shrink: 0; transition: 0.3s; }
         .lang-btn:hover { background: #004a99; color: #fff; }
-
-        /* Navigation */
         .nav-list { display: flex; list-style: none; gap: 0.9rem; align-items: center; }
         .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.75rem; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
         .btn-schedule { background: transparent; color: #004a99; border: 1px solid #004a99; padding: 0.6rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.75rem; }
-
-        /* Mobile Menu Controls */
         .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #004a99; }
         #menu-toggle { display: none; }
-
-        /* Appointment Content Layout */
         main { flex: 1; padding: 4rem 5%; display: flex; align-items: center; justify-content: center; }
         .appointment-box { max-width: 900px; width: 100%; display: flex; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; }
         .appointment-branding { background: #004a99; color: #fff; padding: 3rem; flex: 1; min-width: 300px; }
         .appointment-form-container { padding: 3rem; flex: 1.5; background: #fff; min-width: 300px; }
-
-        /* Form Styling */
         .appointment-form input[type="date"] { width: 100%; padding: 0.8rem; margin-bottom: 1.5rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
         .btn-confirm { background: #004a99; color: #fff; border: none; padding: 1rem; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; }
         .btn-confirm:hover { background: #003366; }
-
-        /* Footer */
         .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; }
         .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 250px; }
         .footer-title { text-decoration: underline; font-weight: bold; margin-bottom: 1rem; display: block; font-size: 1.1rem; }
         .footer-text { line-height: 1.6; opacity: 0.9; font-size: 0.95rem; }
         .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 1200px) { .nav-list { gap: 0.6rem; } .nav-link { font-size: 0.7rem; } }
         @media (max-width: 1000px) {
             .header-branding { font-size: 0.75rem; }
             .hamburger { display: block; }
             .nav-list { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #fff; padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; }
             #menu-toggle:checked ~ .nav-list { display: flex; }
             .appointment-box { flex-direction: column; }
-            .appointment-branding { padding: 2rem; }
-            main { padding: 2rem 5%; }
-            .footer-container { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -68,9 +47,7 @@
     <header class="header">
         <div style="display:flex; align-items:center; gap:12px; flex-shrink: 0;">
             <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
-            <button class="lang-btn" onclick="toggleLanguage()">
-                <span class="lang-el">EN</span><span class="lang-en">GR</span>
-            </button>
+            <button class="lang-btn" onclick="toggleLanguage()"><span class="lang-el">EN</span><span class="lang-en">GR</span></button>
         </div>
         <div class="header-branding">
             <span class="lang-el">ΜΠΟΥΡΑΝΤΑΣ - ΚΑΡΥΜΠΑΛΗΣ, Ι.Κ.Ε.</span>
@@ -90,63 +67,39 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <div class="appointment-box">
             <div class="appointment-branding">
-                <h2 style="margin-bottom: 1rem;">
-                    <span class="lang-el">Προγραμματίστε ένα Ραντεβού</span>
-                    <span class="lang-en">Book an Appointment</span>
-                </h2>
-                <p>
-                    <span class="lang-el">Επιλέξτε μια κατάλληλη ημερομηνία για να συζητήσουμε το επόμενο έργο σας στο γραφείο μας.</span>
-                    <span class="lang-en">Choose a convenient date to discuss your next project at our office.</span>
-                </p>
+                <h2 style="margin-bottom: 1rem;"><span class="lang-el">Προγραμματίστε ένα Ραντεβού</span><span class="lang-en">Book an Appointment</span></h2>
+                <p><span class="lang-el">Επιλέξτε μια κατάλληλη ημερομηνία για να συζητήσουμε το επόμενο έργο σας στο γραφείο μας.</span><span class="lang-en">Choose a convenient date to discuss your next project at our office.</span></p>
             </div>
             <div class="appointment-form-container">
-                <form class="appointment-form" action="https://formspree.io/f/xnjpepoa" method="POST">
-                    <label style="display:block; margin-bottom: 0.5rem; font-weight: bold;">
-                        <span class="lang-el">Επιλέξτε Ημερομηνία:</span><span class="lang-en">Select Date:</span>
-                    </label>
-                    <input type="date" name="requested_date" required>
+                <form action="https://formspree.io/f/xnjpepoa" method="POST" class="appointment-form">
+                    <input type="hidden" name="_next" value="insert website url here/thanks.html">
                     <input type="hidden" name="_subject" value="New Appointment Request">
-                    <button type="submit" class="btn-confirm">
-                        <span class="lang-el">ΕΠΙΒΕΒΑΙΩΣΗ ΡΑΝΤΕΒΟΥ</span><span class="lang-en">CONFIRM APPOINTMENT</span>
-                    </button>
+                    <label style="display:block; margin-bottom: 0.5rem; font-weight: bold;"><span class="lang-el">Επιλέξτε Ημερομηνία:</span><span class="lang-en">Select Date:</span></label>
+                    <input type="date" name="requested_date" required>
+                    <button type="submit" class="btn-confirm"><span class="lang-el">ΕΠΙΒΕΒΑΙΩΣΗ ΡΑΝΤΕΒΟΥ</span><span class="lang-en">CONFIRM APPOINTMENT</span></button>
                 </form>
             </div>
         </div>
     </main>
-
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-col">
                 <span class="footer-title"><span class="lang-el">Διεύθυνση</span><span class="lang-en">Location</span></span>
-                <p class="footer-text">
-                    <span class="lang-el">Αλέκου Παναγούλη 5, 19300, Ασπρόπυργος, Ελλάδα</span>
-                    <span class="lang-en">Alekoy Panagouli 5, 19300, Aspropyrgos, Greece</span>
-                </p>
+                <p class="footer-text"><span class="lang-el">Αλέκου Παναγούλη 5, 19300, Ασπρόπυργος, Ελλάδα</span><span class="lang-en">Alekoy Panagouli 5, 19300, Aspropyrgos, Greece</span></p>
             </div>
             <div class="footer-col">
                 <span class="footer-title"><span class="lang-el">Επικοινωνία</span><span class="lang-en">Contact Information</span></span>
-                <p class="footer-text">Email: bourkarinfo@gmail.com<br>
-                    <span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695
-                </p>
+                <p class="footer-text">Email: bourkarinfo@gmail.com<br><span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695</p>
             </div>
         </div>
         <div class="copyright">Bourantas - Karympalis, P.C.</div>
     </footer>
-
     <script>
-        function toggleLanguage() {
-            const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
-            document.body.setAttribute('lang', newLang);
-            localStorage.setItem('preferredLang', newLang);
-        }
-        (function() {
-            const savedLang = localStorage.getItem('preferredLang');
-            if (savedLang) document.body.setAttribute('lang', savedLang);
-        })();
+        function toggleLanguage() { const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el'; document.body.setAttribute('lang', newLang); localStorage.setItem('preferredLang', newLang); }
+        (function() { const savedLang = localStorage.getItem('preferredLang'); if (savedLang) document.body.setAttribute('lang', savedLang); })();
     </script>
 </body>
 </html>
