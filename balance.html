@@ -5,68 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bourantas - Karympalis, P.C. - Balance Sheet</title>
     <style>
-        /* Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { max-width: 100%; overflow-x: hidden; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
-
-        /* Language Toggle Logic */
         body[lang="en"] .lang-el { display: none !important; }
         body[lang="el"] .lang-en { display: none !important; }
-
-        /* Header Layout */
         .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 3%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
         .header-branding { flex-grow: 1; text-align: center; font-weight: 800; color: #000; font-size: 1.05rem; padding: 0 10px; text-transform: uppercase; }
         .logo { height: 50px; width: auto; }
         .lang-btn { padding: 0.4rem 0.8rem; border: 1px solid #004a99; border-radius: 20px; cursor: pointer; color: #004a99; font-weight: bold; background: #fff; flex-shrink: 0; transition: 0.3s; }
         .lang-btn:hover { background: #004a99; color: #fff; }
-
-        /* Navigation */
         .nav-list { display: flex; list-style: none; gap: 0.9rem; align-items: center; }
         .nav-link { text-decoration: none; color: #444; font-weight: 700; font-size: 0.75rem; }
         .nav-link.active { color: #004a99; border-bottom: 3px solid #004a99; }
         .btn-schedule { background: #004a99; color: #fff; padding: 0.6rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.75rem; }
-
-        /* Mobile Menu Controls */
         .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #004a99; }
         #menu-toggle { display: none; }
-
-        /* Content Styling */
         main { flex: 1; padding: 3rem 10%; }
         .info-card { background: #f9f9f9; padding: 3rem; border-radius: 8px; border-left: 5px solid #004a99; text-align: center; }
-        .info-title { color: #004a99; margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; font-size: 1.5rem; text-align: left; }
-        
-        /* Portal Link Styling */
-        .portal-link { 
-            display: inline-flex; align-items: center; gap: 10px;
-            color: #004a99; font-weight: bold; text-decoration: none; 
-            font-size: 1.1rem; padding: 1.5rem 2rem; border: 2px solid #004a99; 
-            border-radius: 5px; transition: 0.3s; line-height: 1.4;
-            max-width: 100%;
-        }
+        .portal-link { display: inline-flex; color: #004a99; font-weight: bold; text-decoration: none; font-size: 1.1rem; padding: 1.5rem 2rem; border: 2px solid #004a99; border-radius: 5px; transition: 0.3s; line-height: 1.4; }
         .portal-link:hover { background: #004a99; color: #fff; }
-
-        /* Footer */
         .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; }
-        .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto; }
-        .footer-col { flex: 1; min-width: 250px; }
-        .footer-title { text-decoration: underline; font-weight: bold; margin-bottom: 1rem; display: block; font-size: 1.1rem; }
-        .footer-text { line-height: 1.6; opacity: 0.9; font-size: 0.95rem; }
-        .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 1200px) { .nav-list { gap: 0.6rem; } .nav-link { font-size: 0.7rem; } }
         @media (max-width: 1000px) {
             .header-branding { font-size: 0.75rem; }
             .hamburger { display: block; }
-            .nav-list { 
-                display: none; flex-direction: column; position: absolute; 
-                top: 70px; left: 0; width: 100%; background: #fff; 
-                padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; 
-            }
+            .nav-list { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #fff; padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; }
             #menu-toggle:checked ~ .nav-list { display: flex; }
-            main { padding: 2rem 5%; }
-            .footer-container { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -74,15 +38,10 @@
     <header class="header">
         <div style="display:flex; align-items:center; gap:12px; flex-shrink: 0;">
             <a href="index.html"><img src="logo.png" alt="BK Logo" class="logo"></a>
-            <button class="lang-btn" onclick="toggleLanguage()">
-                <span class="lang-el">EN</span><span class="lang-en">GR</span>
-            </button>
+            <button class="lang-btn" onclick="toggleLanguage()"><span class="lang-el">EN</span><span class="lang-en">GR</span></button>
         </div>
-        <div class="header-branding">
-            <span class="lang-el">ΜΠΟΥΡΑΝΤΑΣ - ΚΑΡΥΜΠΑΛΗΣ, Ι.Κ.Ε.</span>
-            <span class="lang-en">BOURANTAS - KARYMPALIS, P.C.</span>
-        </div>
-        <nav style="flex-shrink: 0;">
+        <div class="header-branding"><span class="lang-el">ΜΠΟΥΡΑΝΤΑΣ - ΚΑΡΥΜΠΑΛΗΣ, Ι.Κ.Ε.</span><span class="lang-en">BOURANTAS - KARYMPALIS, P.C.</span></div>
+        <nav>
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="hamburger">☰</label>
             <ul class="nav-list">
@@ -96,50 +55,19 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <div class="info-card">
-            <h2 class="info-title">
-                <span class="lang-el">Οικονομικά Στοιχεία</span>
-                <span class="lang-en">Financial Data</span>
-            </h2>
-
+            <h2 style="color:#004a99; margin-bottom: 2rem; text-align: left;"><span class="lang-el">Οικονομικά Στοιχεία</span><span class="lang-en">Financial Data</span></h2>
             <a href="https://publicity.businessportal.gr/company/175665807000" class="portal-link" target="_blank">
                 <span class="lang-el">Κάντε κλικ εδώ για να μεταβείτε στον τελευταίο ισολογισμό και τα σχετικά οικονομικά στοιχεία</span>
                 <span class="lang-en">Click here to access the latest balance sheet and relevant financial data</span>
             </a>
         </div>
     </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <span class="footer-title"><span class="lang-el">Διεύθυνση</span><span class="lang-en">Location</span></span>
-                <p class="footer-text">
-                    <span class="lang-el">Αλέκου Παναγούλη 5, 19300, Ασπρόπυργος, Ελλάδα</span>
-                    <span class="lang-en">Alekoy Panagouli 5, 19300, Aspropyrgos, Greece</span>
-                </p>
-            </div>
-            <div class="footer-col">
-                <span class="footer-title"><span class="lang-el">Επικοινωνία</span><span class="lang-en">Contact Information</span></span>
-                <p class="footer-text">Email: bourkarinfo@gmail.com<br>
-                    <span class="lang-el">Τηλέφωνο:</span><span class="lang-en">Phone:</span> 2105572695
-                </p>
-            </div>
-        </div>
-        <div class="copyright">Bourantas - Karympalis, P.C.</div>
-    </footer>
-
+    <footer class="footer"><div class="copyright">Bourantas - Karympalis, P.C.</div></footer>
     <script>
-        function toggleLanguage() {
-            const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
-            document.body.setAttribute('lang', newLang);
-            localStorage.setItem('preferredLang', newLang);
-        }
-        (function() {
-            const savedLang = localStorage.getItem('preferredLang');
-            if (savedLang) document.body.setAttribute('lang', savedLang);
-        })();
+        function toggleLanguage() { const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el'; document.body.setAttribute('lang', newLang); localStorage.setItem('preferredLang', newLang); }
+        (function() { const savedLang = localStorage.getItem('preferredLang'); if (savedLang) document.body.setAttribute('lang', savedLang); })();
     </script>
 </body>
 </html>
