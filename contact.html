@@ -31,12 +31,12 @@
         .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #004a99; }
         #menu-toggle { display: none; }
 
-        /* Contact Content Layout */
+        /* Content Layout */
         main { flex: 1; max-width: 1200px; margin: 3rem auto; padding: 0 5%; display: flex; gap: 2rem; width: 100%; }
         .contact-form-container { flex: 1; background: #fff; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); min-width: 300px; }
         .map-container { flex: 1; border-radius: 8px; overflow: hidden; min-width: 300px; height: 450px; background: #eee; border: 1px solid #ddd; }
 
-        /* Form Styling */
+        /* Form Elements */
         .contact-form input, .contact-form textarea { width: 100%; padding: 0.9rem; margin-bottom: 1.2rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
         .btn-submit { background: #004a99; color: #fff; border: none; padding: 1rem; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
         .btn-submit:hover { background: #003366; }
@@ -50,7 +50,7 @@
         /* Responsive Breakpoints */
         @media (max-width: 1000px) {
             .header-branding { font-size: 0.75rem; }
-            .hamburger { display: block; }
+            .hamburger { display: block; } /* FIXED: Hamburger now visible */
             .nav-list { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #fff; padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; }
             #menu-toggle:checked ~ .nav-list { display: flex; }
             main { flex-direction: column; margin: 1.5rem auto; }
@@ -101,7 +101,7 @@
         </div>
 
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.7144795325514!2d23.5855!3d38.0315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDAxJzUzLjQiTiAyM8KwMzUnMDcuOCJF!5e0!3m2!1sel!2sgr!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3141.345076759095!2d23.587383211235565!3d38.06234399542629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1a5760fd66803%3A0xd62d45e56bd4e27e!2sAlekou%20Panagouli%205%2C%20Aspropirgos%20193%2000!5e0!3m2!1sen!2sgr!4v1769435829442!5m2!1sen!2sgr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </main>
 
@@ -118,8 +118,15 @@
     </footer>
 
     <script>
-        function toggleLanguage() { const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el'; document.body.setAttribute('lang', newLang); localStorage.setItem('preferredLang', newLang); }
-        (function() { const savedLang = localStorage.getItem('preferredLang'); if (savedLang) document.body.setAttribute('lang', savedLang); })();
+        function toggleLanguage() {
+            const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el';
+            document.body.setAttribute('lang', newLang);
+            localStorage.setItem('preferredLang', newLang);
+        }
+        (function() {
+            const savedLang = localStorage.getItem('preferredLang');
+            if (savedLang) document.body.setAttribute('lang', savedLang);
+        })();
     </script>
 </body>
 </html>
