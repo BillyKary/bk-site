@@ -24,12 +24,16 @@
         .hero { height: 80vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('background.png') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 0 5%; }
         .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
         .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; }
+        .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .footer-col { flex: 1; min-width: 250px; }
+        .copyright { text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.8rem; opacity: 0.7; }
         @media (max-width: 1000px) {
             .header-branding { font-size: 0.75rem; }
             .hamburger { display: block; }
             .nav-list { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #fff; padding: 2rem; border-bottom: 2px solid #004a99; gap: 1.5rem; text-align: center; }
             #menu-toggle:checked ~ .nav-list { display: flex; }
             .hero-content h1 { font-size: 2rem; }
+            .footer-container { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -54,8 +58,23 @@
             </ul>
         </nav>
     </header>
-    <section class="hero"><div class="hero-content"><h1 class="lang-el">Καλώς Ήρθατε</h1><h1 class="lang-en">Welcome</h1><a href="services.html" class="btn-schedule"><span class="lang-el">ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΑΣ</span><span class="lang-en">OUR SERVICES</span></a></div></section>
-    <footer class="footer"><div class="copyright">Bourantas - Karympalis, P.C.</div></footer>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="lang-el">Καλώς Ήρθατε</h1><h1 class="lang-en">Welcome</h1>
+            <a href="services.html" class="btn-schedule"><span class="lang-el">ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΑΣ</span><span class="lang-en">OUR SERVICES</span></a>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <p><span class="lang-el">Αλέκου Παναγούλη 5, 19300, Ασπρόπυργος</span><span class="lang-en">Alekoy Panagouli 5, 19300, Aspropyrgos</span></p>
+            </div>
+            <div class="footer-col">
+                <p>Email: bourkarinfo@gmail.com | Τηλ: 2105572695</p>
+            </div>
+        </div>
+        <div class="copyright">Bourantas - Karympalis, P.C.</div>
+    </footer>
     <script>
         function toggleLanguage() { const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el'; document.body.setAttribute('lang', newLang); localStorage.setItem('preferredLang', newLang); }
         (function() { const savedLang = localStorage.getItem('preferredLang'); if (savedLang) document.body.setAttribute('lang', savedLang); })();
