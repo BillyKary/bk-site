@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bourantas - Karympalis, P.C. - Balance Sheet</title>
     <style>
+        /* Shared CSS from above */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { max-width: 100%; overflow-x: hidden; }
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
@@ -21,11 +22,10 @@
         .btn-schedule { background: #004a99; color: #fff; padding: 0.6rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.75rem; }
         .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #004a99; }
         #menu-toggle { display: none; }
-        main { flex: 1; padding: 3rem 10%; }
-        .info-card { background: #f9f9f9; padding: 3rem; border-radius: 8px; border-left: 5px solid #004a99; text-align: center; }
-        .portal-link { display: inline-flex; color: #004a99; font-weight: bold; text-decoration: none; font-size: 1.1rem; padding: 1.5rem 2rem; border: 2px solid #004a99; border-radius: 5px; transition: 0.3s; line-height: 1.4; }
+        main { flex: 1; padding: 3rem 10%; display: flex; align-items: center; justify-content: center; }
+        .portal-link { display: inline-block; padding: 1.5rem 2rem; border: 2px solid #004a99; color: #004a99; text-decoration: none; font-weight: bold; border-radius: 8px; text-align: center; transition: 0.3s; }
         .portal-link:hover { background: #004a99; color: #fff; }
-        .footer { background: #004a99; color: #fff; padding: 3rem 10% 1.5rem; }
+        .footer { background: #004a99; color: #fff; padding: 2rem; text-align: center; }
         @media (max-width: 1000px) {
             .header-branding { font-size: 0.75rem; }
             .hamburger { display: block; }
@@ -56,15 +56,12 @@
         </nav>
     </header>
     <main>
-        <div class="info-card">
-            <h2 style="color:#004a99; margin-bottom: 2rem; text-align: left;"><span class="lang-el">Οικονομικά Στοιχεία</span><span class="lang-en">Financial Data</span></h2>
-            <a href="https://publicity.businessportal.gr/company/175665807000" class="portal-link" target="_blank">
-                <span class="lang-el">Κάντε κλικ εδώ για να μεταβείτε στον τελευταίο ισολογισμό και τα σχετικά οικονομικά στοιχεία</span>
-                <span class="lang-en">Click here to access the latest balance sheet and relevant financial data</span>
-            </a>
-        </div>
+        <a href="https://publicity.businessportal.gr/company/175665807000" class="portal-link" target="_blank">
+            <span class="lang-el">Κάντε κλικ εδώ για να μεταβείτε στον τελευταίο ισολογισμό και τα σχετικά οικονομικά στοιχεία</span>
+            <span class="lang-en">Click here to access the latest balance sheet and relevant financial data</span>
+        </a>
     </main>
-    <footer class="footer"><div class="copyright">Bourantas - Karympalis, P.C.</div></footer>
+    <footer class="footer">Bourantas - Karympalis, P.C.</footer>
     <script>
         function toggleLanguage() { const newLang = document.body.getAttribute('lang') === 'el' ? 'en' : 'el'; document.body.setAttribute('lang', newLang); localStorage.setItem('preferredLang', newLang); }
         (function() { const savedLang = localStorage.getItem('preferredLang'); if (savedLang) document.body.setAttribute('lang', savedLang); })();
